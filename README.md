@@ -1,48 +1,55 @@
 # JobQuest
 
-I built this because I was tracking job applications in a spreadsheet and it was making me miserable. Spreadsheets are fine for data but they don't really capture the emotional reality of job hunting — the waiting, the ghosting, the occasional confetti-worthy moment when something moves forward.
+Yeah so I didn't plan on building an entire job application tracker from scratch. I was just tired of my spreadsheet. It was fine, it worked, but every time I opened it I felt like I was doing my taxes. So I closed it, opened VS Code, and here we are.
 
-JobQuest is a desktop app built with Electron. It runs locally, keeps your data on your machine, and tries to be something you actually want to open.
+JobQuest is a desktop app built with Electron. Everything stays on your machine, nothing goes anywhere, and it actually looks nice — which matters more than people admit when you're going through the emotional rollercoaster of job hunting.
 
 ![JobQuest — deep purple theme](screenshot.png)
 
 ---
 
-## Features
+## What it does
 
-There are six views: Board, List, Stats, Goals, Timeline, and Templates.
+There are six views: Board, List, Stats, Goals, Timeline, and Templates. Plus a whole lot living inside each job card.
 
-**Board** is a kanban with six columns — Applied, Phone Screen, Interviewing, Offer, Rejected, and Ghosted. Drag cards between them as things progress. Each card shows the basics plus any deadlines coming up, color-coded by urgency.
+**Board** is a kanban with six columns — Applied, Phone Screen, Interviewing, Offer, Rejected, and Ghosted. Drag cards between them as things progress. Right-click any card for a quick context menu to duplicate or edit. If a deadline is coming up, the card will tell you about it with a colour-coded badge. Within 2 days it goes amber, overdue goes red. Resolved jobs don't show warnings because honestly they don't need to stress you out any further.
 
-**List** is a sortable table for when you want rows instead of cards. You can sort by date, company, salary, or work type, and toggle a "Hide inactive" button to get Rejected and Ghosted out of your eyeline.
+**List** is a sortable table for when you want rows instead of cards. Sort by date, company, salary, or work type. There's a "Hide inactive" toggle that gets Rejected and Ghosted out of your eyeline when you just want to focus on what's still moving.
 
-**Stats** gives you a breakdown of where everything stands — how many applications are active, your response funnel, work type distribution, and a quick summary of your goals.
+**Stats** breaks down where everything stands — active applications, response funnel, work type distribution, a salary insights widget, and a goals summary. The salary widget shows your lowest, average, and highest salary across applications, a visual range spread bar, and a breakdown by work type so you can see whether remote roles in your search are paying more or less than on-site ones. It only counts applications where you've actually filled in a salary, and it tells you how many that is.
 
-**Goals** lets you set targets: applications per week, applications per month, interviews this month, and total offers. Progress counts automatically from your data and resets on schedule — weekly goals reset every Monday, monthly ones on the first of the month.
+**Goals** lets you set targets: applications per week, applications per month, interviews this month, and total offers. Progress counts automatically from your data. Weekly goals reset every Monday, monthly ones on the first. You don't have to do anything, it just knows.
 
-**Timeline** has two modes. The feed is a reverse-chronological list of everything that's happened across all your applications — when you applied, when statuses changed, when interviews are scheduled, upcoming deadlines. The calendar shows the same events on a monthly grid you can click through.
+**Timeline** has two modes. The feed is a reverse-chronological list of everything that's happened — when you applied, status changes, interviews, upcoming deadlines. The calendar shows the same events on a monthly grid you can click through. Status changes get logged automatically as you update things, so the history just builds up over time.
 
-**Templates** is a library of email templates you can reuse across applications. There are four starter templates (follow-up after applying, thank you after an interview, feedback request after rejection, recruiter outreach) and you can add as many of your own as you want. Templates support `{{company}}`, `{{role}}`, and `{{your_name}}` placeholders that get filled in automatically when you use them.
+**Templates** is a library of reusable email templates. There are four starters — follow-up after applying, thank you after an interview, feedback request after rejection, recruiter outreach — and you can add as many of your own as you want. They support `{{company}}`, `{{role}}`, and `{{your_name}}` placeholders that auto-fill when you use them in a job.
 
 ---
 
 Each job card has its own set of tabs:
 
-- **Details** — the basics plus interview date, apply-by deadline, and hear-back-by deadline
-- **Cover letter** — upload a PDF, DOCX, or TXT file, write/paste text, or both
-- **Emails** — pick from your template library and they auto-fill with that job's details. You can have multiple emails saved per job
-- **Resume** — upload the specific resume you submitted for that role
-- **Bonus Q&A** — save answers to those long application form questions so you're not rewriting them every time
-- **Notes** — anything else. Interview prep, contacts, follow-up reminders
-- **Activity** — a log of changes: status moves, when a resume was attached, when dates were set
+- **Details** — the basics, plus interview date, apply-by deadline, and hear-back-by deadline
+- **Contacts** — attach recruiters, hiring managers, interviewers, whoever you've spoken to. Name, title, email, phone, LinkedIn, and notes per person. Email and LinkedIn are clickable
+- **Cover letter** — upload a PDF, DOCX, or TXT file, write/paste text, or both. They're independent
+- **Emails** — pick from your template library and it auto-fills with that job's details. Save multiple emails per job to track what you've already sent
+- **Resume** — upload the specific resume you submitted for that role. Because we all know we have seventeen versions
+- **Bonus Q&A** — save answers to those long application form questions so you're not rewriting them from scratch every time
+- **Notes** — anything else. Interview prep, contacts, follow-up reminders, "do not mention the thing about the thing"
+- **Activity** — a log of changes. Status moves, when a resume was attached, when dates were set. Builds up quietly in the background
 
 ---
 
-**Search and filters** sit above the stat cards. The search bar filters by company and role as you type. Click into it and filter pills expand underneath for status, work type, and salary range. Everything — the board, the list, and the CSV export — reflects whatever filters are active.
+**Duplicate any job** from the edit modal or by right-clicking a card. A checklist lets you pick exactly what carries over — cover letter, resume, notes, contacts, Q&A, emails, deadlines. Company, location, work type, and salary always copy. Role and link always start blank so you can fill them in fresh.
 
-**Deadlines** show up as a badge on kanban cards and a column in the list view. Within 2 days the badge turns amber. Overdue goes red. Jobs that are already resolved (Rejected, Ghosted, Offer) don't show warnings.
+**Search and filters** sit above the stat cards. The search bar filters by company and role as you type. Click into it and filter pills expand underneath for status, work type, and salary range. Everything — the board, the list, the CSV export — reflects whatever filters are active.
 
-**Themes** — six dark themes: purple, pink, peach, mint, ocean, midnight. Pick from the swatches in the top bar. The scrollbars match, the window controls match, everything matches.
+**Deadlines** show up as a badge on kanban cards and a column in the list view. Within 2 days the badge turns amber. Overdue goes red. Jobs that are already resolved don't show warnings.
+
+**Themes** — six dark themes plus light variants of all six, so twelve total. Purple, pink, peach, mint, ocean, midnight. Toggle between dark and light with the sun/moon button in the topbar. The scrollbars match your theme because I noticed they didn't and it bothered me.
+
+**Card density** — switch between Comfortable, Cozy, and Compact from the gear menu depending on how many applications you're juggling.
+
+**Keyboard shortcuts** — press `?` to see the full list. Highlights include `N` for new job, `/` to focus search, and `1`–`6` to switch tabs.
 
 **Export to CSV** lives in the gear menu and exports whatever's currently visible after filters.
 
@@ -59,7 +66,7 @@ npm install
 npm start
 ```
 
-The first time it opens, it'll ask for your name. That's just for the `{{your_name}}` placeholder in email templates — you can change it any time from the gear menu.
+First time it opens, it'll ask for your name (for the `{{your_name}}` placeholder in email templates) and then walk you through a quick tour of the main features. Both are skippable. You can re-run the tour any time from the gear menu.
 
 ---
 
@@ -71,9 +78,9 @@ Everything stays local. Nothing goes anywhere.
 - **macOS:** `~/Library/Application Support/jobquest`
 - **Linux:** `~/.config/jobquest`
 
-Resumes and cover letter files are stored as base64 in the same JSON as everything else, so there's no separate folder to manage. If you want to back things up, the relevant localStorage keys are `jobquest_jobs`, `jobquest_templates`, `jobquest_theme`, `jobquest_goals`, and `jobquest_user_name`.
+Resumes and cover letter files are stored as base64 in the same JSON as everything else, so there's no separate folder to manage. If you want to back things up manually, the localStorage keys are `jobquest_jobs`, `jobquest_templates`, `jobquest_theme`, `jobquest_goals`, and `jobquest_user_name`.
 
-To update the app, replace `index.html`. If `main.js` or `preload.js` also changed in that update, replace those too. Only run `npm install` again if `package.json` changed.
+To update the app, replace `index.html`. If `main.js` or `preload.js` also changed, replace those too. Only run `npm install` again if `package.json` changed.
 
 ---
 
@@ -91,7 +98,7 @@ jobquest/
 
 ## Building
 
-To build an installable instead of running from source:
+To get an installable instead of running from source:
 
 ```bash
 npm run build:win    # .exe
