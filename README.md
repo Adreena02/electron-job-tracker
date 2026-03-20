@@ -1,47 +1,56 @@
 # JobQuest
 
-A desktop job application tracker built with Electron. I made this because spreadsheets felt too clinical and I wanted something that was actually nice to look at while job hunting.
+I built this because I was tracking job applications in a spreadsheet and it was making me miserable. Spreadsheets are fine for data but they don't really capture the emotional reality of job hunting — the waiting, the ghosting, the occasional confetti-worthy moment when something moves forward.
 
-![JobQuest screenshot — deep purple theme with kanban board](screenshot.png)
+JobQuest is a desktop app built with Electron. It runs locally, keeps your data on your machine, and tries to be something you actually want to open.
+
+![JobQuest — deep purple theme](screenshot.png)
 
 ---
 
-## What it does
+## Features
 
-**Views**
-- **Kanban board** — drag cards between columns as your application progresses (Applied → Phone Screen → Interviewing → Offer, or the less fun ones)
-- **List view** — sortable table if you prefer rows over cards. Sort by date, company name, salary, or work type. Toggle "Hide inactive" to remove Rejected and Ghosted entries from view
-- **Stats** — a quick breakdown of where everything stands: status distribution, work type mix, and a response funnel
-- **Timeline** — a chronological feed and a monthly calendar of all your application activity. Status changes are logged automatically going forward
-- **Templates** — a library of reusable email templates for follow-ups, thank yous, feedback requests, and recruiter outreach
+There are six views: Board, List, Stats, Goals, Timeline, and Templates.
 
-**Per-application storage**
+**Board** is a kanban with six columns — Applied, Phone Screen, Interviewing, Offer, Rejected, and Ghosted. Drag cards between them as things progress. Each card shows the basics plus any deadlines coming up, color-coded by urgency.
 
-Each job card stores a lot more than just the basics:
-- Cover letter
-- Resume (uploaded as a file, stored locally)
-- Emails — pick from your template library, auto-filled with the company name, role, and your name, then edit before sending
-- Bonus Q&A — save answers to those long application form questions so you can reuse them
-- Notes — interview prep, contacts, follow-up reminders
+**List** is a sortable table for when you want rows instead of cards. You can sort by date, company, salary, or work type, and toggle a "Hide inactive" button to get Rejected and Ghosted out of your eyeline.
 
-**Search & filter**
+**Stats** gives you a breakdown of where everything stands — how many applications are active, your response funnel, work type distribution, and a quick summary of your goals.
 
-A search bar sits above the stat cards and searches by company name and role as you type. Click into it to expand filter pills for status, work type, and salary range. Filters apply across both the board and list views, and the CSV export only exports what's currently visible.
+**Goals** lets you set targets: applications per week, applications per month, interviews this month, and total offers. Progress counts automatically from your data and resets on schedule — weekly goals reset every Monday, monthly ones on the first of the month.
 
-**Other bits**
-- Six dark themes — purple, pink, peach, mint, ocean, and midnight. Picked from swatches in the top bar, remembered between sessions
-- Custom title bar — no OS chrome, just the app. Window controls (minimise, maximise, close) are built in and match your theme
-- Export to CSV from the gear menu
-- Scrollbars that match your current theme
-- Confetti when you log a new "Applied" application
-- Window size and position remembered between sessions
-- First-launch name prompt so email templates can auto-fill `{{your_name}}`
+**Timeline** has two modes. The feed is a reverse-chronological list of everything that's happened across all your applications — when you applied, when statuses changed, when interviews are scheduled, upcoming deadlines. The calendar shows the same events on a monthly grid you can click through.
+
+**Templates** is a library of email templates you can reuse across applications. There are four starter templates (follow-up after applying, thank you after an interview, feedback request after rejection, recruiter outreach) and you can add as many of your own as you want. Templates support `{{company}}`, `{{role}}`, and `{{your_name}}` placeholders that get filled in automatically when you use them.
+
+---
+
+Each job card has its own set of tabs:
+
+- **Details** — the basics plus interview date, apply-by deadline, and hear-back-by deadline
+- **Cover letter** — upload a PDF, DOCX, or TXT file, write/paste text, or both
+- **Emails** — pick from your template library and they auto-fill with that job's details. You can have multiple emails saved per job
+- **Resume** — upload the specific resume you submitted for that role
+- **Bonus Q&A** — save answers to those long application form questions so you're not rewriting them every time
+- **Notes** — anything else. Interview prep, contacts, follow-up reminders
+- **Activity** — a log of changes: status moves, when a resume was attached, when dates were set
+
+---
+
+**Search and filters** sit above the stat cards. The search bar filters by company and role as you type. Click into it and filter pills expand underneath for status, work type, and salary range. Everything — the board, the list, and the CSV export — reflects whatever filters are active.
+
+**Deadlines** show up as a badge on kanban cards and a column in the list view. Within 2 days the badge turns amber. Overdue goes red. Jobs that are already resolved (Rejected, Ghosted, Offer) don't show warnings.
+
+**Themes** — six dark themes: purple, pink, peach, mint, ocean, midnight. Pick from the swatches in the top bar. The scrollbars match, the window controls match, everything matches.
+
+**Export to CSV** lives in the gear menu and exports whatever's currently visible after filters.
 
 ---
 
 ## Getting started
 
-You'll need [Node.js](https://nodejs.org) installed (the LTS version is fine).
+You'll need [Node.js](https://nodejs.org) — the LTS version is fine.
 
 ```bash
 git clone https://github.com/yourusername/jobquest.git
@@ -50,23 +59,21 @@ npm install
 npm start
 ```
 
-`npm install` pulls down Electron (~100 MB, one time only) and `npm start` opens the app.
-
-The first time you open it, you'll be asked for your name — this is used to auto-fill the `{{your_name}}` placeholder in email templates. You can change it any time from the gear menu.
+The first time it opens, it'll ask for your name. That's just for the `{{your_name}}` placeholder in email templates — you can change it any time from the gear menu.
 
 ---
 
 ## Your data
 
-Everything is stored locally — nothing leaves your machine.
+Everything stays local. Nothing goes anywhere.
 
 - **Windows:** `%APPDATA%\jobquest`
 - **macOS:** `~/Library/Application Support/jobquest`
 - **Linux:** `~/.config/jobquest`
 
-Resumes are stored as base64 inside the same JSON blob as everything else, so there's no separate folder to worry about. The localStorage keys are `jobquest_jobs`, `jobquest_templates`, `jobquest_theme`, and `jobquest_user_name` if you ever want to back things up manually.
+Resumes and cover letter files are stored as base64 in the same JSON as everything else, so there's no separate folder to manage. If you want to back things up, the relevant localStorage keys are `jobquest_jobs`, `jobquest_templates`, `jobquest_theme`, `jobquest_goals`, and `jobquest_user_name`.
 
-**Updating the app** — if only `index.html` changed, just replace that. If `main.js` or `preload.js` also changed, replace those too. Run `npm install` again only if `package.json` changed.
+To update the app, replace `index.html`. If `main.js` or `preload.js` also changed in that update, replace those too. Only run `npm install` again if `package.json` changed.
 
 ---
 
@@ -74,41 +81,25 @@ Resumes are stored as base64 inside the same JSON blob as everything else, so th
 
 ```
 jobquest/
-├── index.html    # the entire app UI and logic
-├── main.js       # Electron main process — window creation, IPC handlers
-├── preload.js    # secure bridge between renderer and Electron APIs
+├── index.html    # the whole app — UI, logic, everything
+├── main.js       # Electron wrapper — window setup, IPC
+├── preload.js    # bridge between the renderer and Electron APIs
 └── package.json
 ```
 
 ---
 
-## Building a distributable
+## Building
 
-If you want a proper installable `.exe` or `.dmg` instead of running from source:
+To build an installable instead of running from source:
 
 ```bash
-npm run build:win    # Windows installer
-npm run build:mac    # macOS .dmg
-npm run build:linux  # Linux AppImage
+npm run build:win    # .exe
+npm run build:mac    # .dmg
+npm run build:linux  # AppImage
 ```
 
-Output lands in the `dist/` folder. You'll need to be on the target platform to build for it (or use a CI runner).
-
----
-
-## Stack
-
-- **Electron** for the desktop wrapper
-- **Vanilla JS** — no framework, no bundler. The whole app is a single `index.html`
-- **Nunito** (Google Fonts) for the rounded, friendly type
-- **HTML5 Drag and Drop API** for the kanban drag and drop
-- **Canvas API** for confetti
-
----
-
-## Contributing
-
-Issues and PRs welcome. The codebase is intentionally simple — one HTML file, one `main.js`, one `preload.js` — so it should be easy to navigate. If you're adding a feature, try to keep it in that spirit.
+Builds go to `dist/`. You need to be on the target platform.
 
 ---
 

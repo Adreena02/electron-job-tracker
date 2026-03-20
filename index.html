@@ -866,7 +866,8 @@
       <button class="modal-tab"        id="mtab-emails"  onclick="switchModalTab('emails')">Emails</button>
       <button class="modal-tab"        id="mtab-resume"  onclick="switchModalTab('resume')">Resume</button>
       <button class="modal-tab"        id="mtab-qa"      onclick="switchModalTab('qa')">Bonus Q&amp;A</button>
-      <button class="modal-tab"        id="mtab-notes"   onclick="switchModalTab('notes')">Notes</button>
+      <button class="modal-tab"        id="mtab-notes"    onclick="switchModalTab('notes')">Notes</button>
+      <button class="modal-tab"        id="mtab-activity" onclick="switchModalTab('activity')">Activity</button>
     </div>
 
     <div class="modal-panel active" id="mpanel-details">
@@ -895,11 +896,31 @@
     </div>
 
     <div class="modal-panel" id="mpanel-cover">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-        <p class="panel-hint" style="margin:0">Write or paste your cover letter. Saved with the application.</p>
-        <button class="btn-template primary" style="flex:0;white-space:nowrap;margin-left:10px" onclick="openTemplatePicker()">Use template</button>
+      <p class="panel-hint" style="margin-bottom:10px">Upload a file or write/paste your cover letter below — or both.</p>
+
+      <div class="resume-drop" id="coverDrop"
+        onclick="document.getElementById('coverInput').click()"
+        ondragover="event.preventDefault();this.classList.add('dragover')"
+        ondragleave="this.classList.remove('dragover')"
+        ondrop="handleCoverDrop(event)">
+        <div style="font-size:24px;margin-bottom:6px">📝</div>
+        <div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:4px">Click to upload or drag & drop</div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600">PDF, DOCX, or TXT · max 5 MB</div>
       </div>
-      <textarea id="f-cover" style="width:100%;min-height:200px;font-weight:400;line-height:1.6" placeholder="Dear Hiring Manager,&#10;&#10;I'm excited to apply for..."></textarea>
+      <input type="file" id="coverInput" accept=".pdf,.doc,.docx,.txt" style="display:none" onchange="loadCoverFile(this.files[0]);this.value=''">
+      <div id="coverFilePreview"></div>
+
+      <div style="display:flex;align-items:center;gap:10px;margin:14px 0 8px">
+        <div style="flex:1;height:0.5px;background:var(--border2)"></div>
+        <span style="font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.6px">or write below</span>
+        <div style="flex:1;height:0.5px;background:var(--border2)"></div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <span style="font-size:11px;font-weight:700;color:var(--text3)">Written cover letter</span>
+        <button class="btn-template primary" style="flex:0;white-space:nowrap" onclick="openTemplatePicker()">Use template</button>
+      </div>
+      <textarea id="f-cover" style="width:100%;min-height:160px;font-weight:400;line-height:1.6" placeholder="Dear Hiring Manager,&#10;&#10;I'm excited to apply for..."></textarea>
     </div>
 
     <div class="modal-panel" id="mpanel-emails">
@@ -934,6 +955,11 @@
     <div class="modal-panel" id="mpanel-notes">
       <p class="panel-hint">Interview prep, contacts, follow-up reminders...</p>
       <textarea id="f-notes" style="width:100%;min-height:120px;font-weight:400;line-height:1.6" placeholder="e.g. Spoke with Sarah in engineering. Next round is a system design..."></textarea>
+    </div>
+
+    <div class="modal-panel" id="mpanel-activity">
+      <p class="panel-hint">A log of changes made to this application.</p>
+      <div id="activityList"></div>
     </div>
 
     <div class="modal-footer">
@@ -1961,20 +1987,74 @@ function switchTab(tab) {
   if (tab === 'goals')    renderGoals();
 }
 
-const MODAL_TABS = ['details', 'cover', 'emails', 'resume', 'qa', 'notes'];
+const MODAL_TABS = ['details', 'cover', 'emails', 'resume', 'qa', 'notes', 'activity'];
 
 function switchModalTab(tab) {
   MODAL_TABS.forEach(t => {
     document.getElementById(`mtab-${t}`).classList.toggle('active', t === tab);
     document.getElementById(`mpanel-${t}`).classList.toggle('active', t === tab);
   });
-  if (tab === 'qa')     renderQAList();
-  if (tab === 'emails') renderEmailList();
+  if (tab === 'qa')       renderQAList();
+  if (tab === 'emails')   renderEmailList();
+  if (tab === 'activity') renderActivityLog();
 }
 
 
 
-let currentResume = null;
+let currentResume    = null;
+let currentCoverFile = null;
+
+function handleCoverDrop(event) {
+  event.preventDefault();
+  document.getElementById('coverDrop').classList.remove('dragover');
+  const file = event.dataTransfer.files[0];
+  if (file) loadCoverFile(file);
+}
+
+function loadCoverFile(file) {
+  if (file.size > 5 * 1024 * 1024) { alert('File too large — max 5 MB.'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    currentCoverFile = { name: file.name, size: file.size, type: file.type, data: e.target.result };
+    renderCoverFilePreview();
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderCoverFilePreview() {
+  const drop    = document.getElementById('coverDrop');
+  const preview = document.getElementById('coverFilePreview');
+  if (!drop || !preview) return;
+  if (currentCoverFile) {
+    drop.style.display   = 'none';
+    preview.innerHTML = `
+      <div class="resume-file">
+        <span style="font-size:22px;flex-shrink:0">📝</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)">${currentCoverFile.name}</div>
+          <div style="font-size:10px;color:var(--text3);font-weight:600">${Math.round(currentCoverFile.size / 1024)} KB</div>
+        </div>
+        <button onclick="clearCoverFile()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px">×</button>
+      </div>
+      <button onclick="downloadCoverFile()" style="margin-top:10px;width:100%;padding:8px;background:none;border:0.5px solid var(--border2);border-radius:12px;font-family:var(--fn);font-size:12px;font-weight:700;color:var(--text2);cursor:pointer">Download cover letter</button>
+    `;
+  } else {
+    drop.style.display   = 'block';
+    preview.innerHTML    = '';
+  }
+}
+
+function clearCoverFile() {
+  currentCoverFile = null;
+  renderCoverFilePreview();
+}
+
+function downloadCoverFile() {
+  const a = document.createElement('a');
+  a.href     = currentCoverFile.data;
+  a.download = currentCoverFile.name;
+  a.click();
+}
 
 function handleResumeDrop(event) {
   event.preventDefault();
@@ -2071,6 +2151,54 @@ function renderEmailList() {
 
 function removeEmail(i) { currentEmails.splice(i, 1); renderEmailList(); }
 
+function activityEntryHtml(entry, isLast) {
+  const icons = {
+    status:        { emoji: '🔄', color: STATUS_CFG[entry.to]?.color || '#94A3B8' },
+    resume:        { emoji: '📄', color: '#34D399' },
+    interviewDate: { emoji: '📅', color: '#A78BFA' },
+    applyBy:       { emoji: '⏰', color: '#38BDF8' },
+    hearBackBy:    { emoji: '⏰', color: '#38BDF8' },
+  };
+  const cfg = icons[entry.type] || { emoji: '•', color: '#94A3B8' };
+
+  let label = '';
+  if (entry.type === 'status')        label = `Status changed from <strong>${entry.from}</strong> to <strong>${entry.to}</strong>`;
+  if (entry.type === 'resume')        label = `Resume attached — ${entry.detail}`;
+  if (entry.type === 'interviewDate') label = `Interview date set to ${formatDate(entry.detail)}`;
+  if (entry.type === 'applyBy')       label = `Apply by deadline set to ${formatDate(entry.detail)}`;
+  if (entry.type === 'hearBackBy')    label = `Hear back by deadline set to ${formatDate(entry.detail)}`;
+
+  return `
+    <div class="feed-item" style="cursor:default">
+      <div class="feed-dot-wrap">
+        <div class="feed-dot" style="background:${cfg.color}"></div>
+        ${!isLast ? '<div class="feed-line"></div>' : ''}
+      </div>
+      <div class="feed-content">
+        <div class="feed-title" style="font-size:12px">${label}</div>
+      </div>
+      <div class="feed-date">${formatDate(entry.date)}</div>
+    </div>
+  `;
+}
+
+function renderActivityLog() {
+  const list = document.getElementById('activityList');
+  if (!list) return;
+
+  const job = editId ? jobs.find(j => j.id === editId) : null;
+  const entries = [...(job?.activity || [])].reverse();
+
+  if (!entries.length) {
+    list.innerHTML = `<div class="feed-empty">Nothing logged yet — activity will appear here as you update this application.</div>`;
+    return;
+  }
+
+  list.innerHTML = '<div class="feed-list">' +
+    entries.map((e, i) => activityEntryHtml(e, i === entries.length - 1)).join('') +
+    '</div>';
+}
+
 function openEmailPicker() {
   const list = document.getElementById('templatePickerList');
   if (!templates.length) {
@@ -2126,10 +2254,13 @@ function openAdd() {
   document.getElementById('f-status').value   = 'Applied';
   document.getElementById('f-date').value     = new Date().toISOString().slice(0, 10);
 
-  currentEmails = [];
+  currentEmails    = [];
+  currentCoverFile = null;
   renderResumePreview();
+  renderCoverFilePreview();
   renderQAList();
   renderEmailList();
+  renderActivityLog();
   switchModalTab('details');
   document.getElementById('modalOverlay').classList.add('open');
 }
@@ -2137,9 +2268,10 @@ function openAdd() {
 function openEdit(id) {
   const job = jobs.find(j => j.id === id);
   editId = id;
-  currentResume  = job.resume ? { ...job.resume } : null;
-  currentQA      = JSON.parse(JSON.stringify(job.qa     || []));
-  currentEmails  = JSON.parse(JSON.stringify(job.emails || []));
+  currentResume    = job.resume     ? { ...job.resume }     : null;
+  currentCoverFile = job.coverFile  ? { ...job.coverFile }  : null;
+  currentQA        = JSON.parse(JSON.stringify(job.qa     || []));
+  currentEmails    = JSON.parse(JSON.stringify(job.emails || []));
 
   document.getElementById('modalTitle').textContent  = 'Edit application';
   document.getElementById('btnDelete').style.display = 'block';
@@ -2152,8 +2284,10 @@ function openEdit(id) {
   document.getElementById('f-hear-back-by').value   = job.hearBackBy    || '';
 
   renderResumePreview();
+  renderCoverFilePreview();
   renderQAList();
   renderEmailList();
+  renderActivityLog();
   switchModalTab('details');
   document.getElementById('modalOverlay').classList.add('open');
 }
@@ -2182,18 +2316,28 @@ function saveJob() {
     cover:         val('f-cover').trim(),
     notes:         val('f-notes').trim(),
     resume:        currentResume,
+    coverFile:     currentCoverFile,
     qa:            currentQA.filter(q => q.q || q.a),
     emails:        currentEmails,
     activity:      prevJob?.activity ? [...prevJob.activity] : [],
   };
 
+  const today = new Date().toISOString().slice(0, 10);
+
   if (prevJob && prevJob.status !== job.status) {
-    job.activity.push({
-      date:   new Date().toISOString().slice(0, 10),
-      type:   'status',
-      from:   prevJob.status,
-      to:     job.status,
-    });
+    job.activity.push({ date: today, type: 'status', from: prevJob.status, to: job.status });
+  }
+  if (prevJob && !prevJob.resume && job.resume) {
+    job.activity.push({ date: today, type: 'resume', detail: job.resume.name });
+  }
+  if (prevJob && prevJob.interviewDate !== job.interviewDate && job.interviewDate) {
+    job.activity.push({ date: today, type: 'interviewDate', detail: job.interviewDate });
+  }
+  if (prevJob && prevJob.applyBy !== job.applyBy && job.applyBy) {
+    job.activity.push({ date: today, type: 'applyBy', detail: job.applyBy });
+  }
+  if (prevJob && prevJob.hearBackBy !== job.hearBackBy && job.hearBackBy) {
+    job.activity.push({ date: today, type: 'hearBackBy', detail: job.hearBackBy });
   }
 
   if (!job.company) { alert('Please enter a company name.'); return; }
