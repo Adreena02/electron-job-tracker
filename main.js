@@ -1,4 +1,4 @@
-const { app, BrowserWindow, screen, ipcMain } = require('electron')
+const { app, BrowserWindow, screen, ipcMain, dialog } = require('electron')
 const path = require('path')
 const fs   = require('fs')
 
@@ -34,7 +34,7 @@ function createWindow() {
     y:         saved.y,
     minWidth:  900,
     minHeight: 600,
-    frame:     false,       // remove the OS title bar entirely
+    frame:     false,
     backgroundColor: '#1A1030',
     webPreferences: {
       nodeIntegration:  false,
@@ -47,19 +47,42 @@ function createWindow() {
 
   win.on('resize', () => saveBounds(win))
   win.on('move',   () => saveBounds(win))
-
-  // tell the renderer when maximise state changes so the button icon can update
   win.on('maximize',   () => win.webContents.send('maximized', true))
   win.on('unmaximize', () => win.webContents.send('maximized', false))
 }
 
-// window control handlers called from the renderer via preload
-ipcMain.on('win-minimize',  () => BrowserWindow.getFocusedWindow()?.minimize())
-ipcMain.on('win-maximize',  () => {
+ipcMain.on('win-minimize', () => BrowserWindow.getFocusedWindow()?.minimize())
+ipcMain.on('win-maximize', () => {
   const win = BrowserWindow.getFocusedWindow()
   win?.isMaximized() ? win.unmaximize() : win.maximize()
 })
-ipcMain.on('win-close',     () => BrowserWindow.getFocusedWindow()?.close())
+ipcMain.on('win-close', () => BrowserWindow.getFocusedWindow()?.close())
+
+ipcMain.handle('export-pdf', async (event, { html, filename }) => {
+  const { canceled, filePath } = await dialog.showSaveDialog({
+    defaultPath: filename,
+    filters: [{ name: 'PDF', extensions: ['pdf'] }],
+  })
+  if (canceled || !filePath) return { success: false }
+
+  // spin up a hidden window to render the HTML and print it
+  const pdfWin = new BrowserWindow({
+    show: false,
+    webPreferences: { nodeIntegration: false, contextIsolation: true },
+  })
+
+  await pdfWin.loadURL('data:text/html;charset=utf-8,' + encodeURIComponent(html))
+
+  const pdfBuffer = await pdfWin.webContents.printToPDF({
+    printBackground: true,
+    pageSize: 'A4',
+    margins: { top: 0, bottom: 0, left: 0, right: 0 },
+  })
+
+  pdfWin.destroy()
+  fs.writeFileSync(filePath, pdfBuffer)
+  return { success: true, filePath }
+})
 
 app.whenReady().then(() => {
   createWindow()
