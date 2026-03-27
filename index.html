@@ -984,54 +984,54 @@
   </div>
 
   <div class="tab-group">
-    <button class="tab active" onclick="switchTab('kanban')">Board</button>
-    <button class="tab" onclick="switchTab('table')">List</button>
-    <button class="tab" onclick="switchTab('stats')">Stats</button>
-    <button class="tab" onclick="switchTab('goals')">Goals</button>
-    <button class="tab" onclick="switchTab('timeline')">Timeline</button>
-    <button class="tab" onclick="switchTab('templates')">Templates</button>
+    <button class="tab active" data-tab="kanban">Board</button>
+    <button class="tab" data-tab="table">List</button>
+    <button class="tab" data-tab="stats">Stats</button>
+    <button class="tab" data-tab="goals">Goals</button>
+    <button class="tab" data-tab="timeline">Timeline</button>
+    <button class="tab" data-tab="templates">Templates</button>
   </div>
 
   <div class="spacer" style="flex:1"></div>
 
   <div class="theme-swatches">
-    <div class="swatch" id="sw-purple"   style="background:linear-gradient(135deg,#C084FC,#818CF8)" onclick="applyTheme('purple')"   title="Purple"></div>
-    <div class="swatch" id="sw-pink"     style="background:linear-gradient(135deg,#F472B6,#FB7185)" onclick="applyTheme('pink')"     title="Pink"></div>
-    <div class="swatch" id="sw-peach"    style="background:linear-gradient(135deg,#FB923C,#F59E0B)" onclick="applyTheme('peach')"    title="Peach"></div>
-    <div class="swatch" id="sw-mint"     style="background:linear-gradient(135deg,#34D399,#059669)" onclick="applyTheme('mint')"     title="Mint"></div>
-    <div class="swatch" id="sw-ocean"    style="background:linear-gradient(135deg,#38BDF8,#3B82F6)" onclick="applyTheme('ocean')"    title="Ocean"></div>
-    <div class="swatch" id="sw-midnight" style="background:linear-gradient(135deg,#475569,#0F172A)" onclick="applyTheme('midnight')" title="Midnight"></div>
+    <div class="swatch" id="sw-purple"   style="background:linear-gradient(135deg,#C084FC,#818CF8)"    title="Purple"></div>
+    <div class="swatch" id="sw-pink"     style="background:linear-gradient(135deg,#F472B6,#FB7185)"      title="Pink"></div>
+    <div class="swatch" id="sw-peach"    style="background:linear-gradient(135deg,#FB923C,#F59E0B)"     title="Peach"></div>
+    <div class="swatch" id="sw-mint"     style="background:linear-gradient(135deg,#34D399,#059669)"      title="Mint"></div>
+    <div class="swatch" id="sw-ocean"    style="background:linear-gradient(135deg,#38BDF8,#3B82F6)"     title="Ocean"></div>
+    <div class="swatch" id="sw-midnight" style="background:linear-gradient(135deg,#475569,#0F172A)"  title="Midnight"></div>
   </div>
 
-  <button class="mode-btn" id="modeBtn" onclick="toggleMode()" title="Toggle light/dark"></button>
+  <button class="mode-btn" id="modeBtn"  title="Toggle light/dark"></button>
 
   <div class="settings-wrap">
-    <button class="settings-btn" onclick="toggleSettings(event)" title="Settings">
+    <button class="settings-btn"  title="Settings">
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
         <circle cx="7.5" cy="7.5" r="2"/>
         <path d="M7.5 1v1.5M7.5 12.5V14M1 7.5h1.5M12.5 7.5H14M2.9 2.9l1.1 1.1M11 11l1.1 1.1M2.9 12.1l1.1-1.1M11 4l1.1-1.1"/>
       </svg>
     </button>
     <div class="settings-dropdown" id="settingsDropdown">
-      <button class="dropdown-item" onclick="exportCSV()">
+      <button class="dropdown-item">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6.5 1v7M4 6l2.5 2.5L9 6"/><path d="M1 10v1a1 1 0 001 1h9a1 1 0 001-1v-1"/>
         </svg>
         Export to CSV
       </button>
-      <button class="dropdown-item" onclick="exportAllPDF()">
+      <button class="dropdown-item">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="1" width="9" height="11" rx="1.5"/><path d="M4 4h5M4 6.5h5M4 9h3"/>
         </svg>
         Export to PDF
       </button>
-      <button class="dropdown-item" onclick="promptChangeName()">
+      <button class="dropdown-item">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
           <circle cx="6.5" cy="4" r="2.5"/><path d="M1 11.5c0-2.5 2.5-4 5.5-4s5.5 1.5 5.5 4"/>
         </svg>
         Change name
       </button>
-      <button class="dropdown-item" onclick="startTour()">
+      <button class="dropdown-item">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="6.5" cy="6.5" r="5.5"/><path d="M6.5 4v3l2 1"/>
         </svg>
@@ -1039,22 +1039,22 @@
       </button>
       <div style="height:0.5px;background:var(--border2);margin:4px 0"></div>
       <div style="font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;padding:4px 12px 2px">Card density</div>
-      <button class="dropdown-item" id="density-comfortable" onclick="setDensity('comfortable')">
+      <button class="dropdown-item" id="density-comfortable">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="1" width="11" height="11" rx="2"/></svg>
         Comfortable
       </button>
-      <button class="dropdown-item" id="density-cozy" onclick="setDensity('cozy')">
+      <button class="dropdown-item" id="density-cozy">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="2.5" width="11" height="8" rx="2"/></svg>
         Cozy
       </button>
-      <button class="dropdown-item" id="density-compact" onclick="setDensity('compact')">
+      <button class="dropdown-item" id="density-compact">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="11" height="5" rx="2"/></svg>
         Compact
       </button>
     </div>
   </div>
 
-  <button class="btn-add" onclick="openAdd()">
+  <button class="btn-add" >
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
     Add job
   </button>
@@ -1078,7 +1078,7 @@
       oninput="applyFilters()"
       onfocus="expandFilters()"
       style="flex:1">
-    <button class="filter-clear" onclick="clearFilters()">Clear <span class="filter-active-count" id="filterCount" style="display:none"></span></button>
+    <button class="filter-clear" >Clear <span class="filter-active-count" id="filterCount" style="display:none"></span></button>
   </div>
 </div>
 
@@ -1113,28 +1113,28 @@
   <div class="sort-bar">
     <span class="sort-bar-label">Sort by</span>
     <div class="sort-pills">
-      <button class="sort-pill active" id="sp-date-desc"    onclick="setSort('date','desc')">📅 Newest first ↓</button>
-      <button class="sort-pill"        id="sp-date-asc"     onclick="setSort('date','asc')">📅 Oldest first ↑</button>
-      <button class="sort-pill"        id="sp-alpha-asc"    onclick="setSort('alpha','asc')">🔤 A → Z ↑</button>
-      <button class="sort-pill"        id="sp-alpha-desc"   onclick="setSort('alpha','desc')">🔤 Z → A ↓</button>
-      <button class="sort-pill"        id="sp-worktype-asc" onclick="setSort('worktype','asc')">🌍 Work type</button>
-      <button class="sort-pill"        id="sp-salary-asc"   onclick="setSort('salary','asc')">💰 Salary low → high ↑</button>
-      <button class="sort-pill"        id="sp-salary-desc"  onclick="setSort('salary','desc')">💰 Salary high → low ↓</button>
+      <button class="sort-pill active" id="sp-date-desc"    data-sort-key="date" data-sort-dir="desc">📅 Newest first ↓</button>
+      <button class="sort-pill"        id="sp-date-asc"     data-sort-key="date" data-sort-dir="asc">📅 Oldest first ↑</button>
+      <button class="sort-pill"        id="sp-alpha-asc"    data-sort-key="alpha" data-sort-dir="asc">🔤 A → Z ↑</button>
+      <button class="sort-pill"        id="sp-alpha-desc"   data-sort-key="alpha" data-sort-dir="desc">🔤 Z → A ↓</button>
+      <button class="sort-pill"        id="sp-worktype-asc" data-sort-key="worktype" data-sort-dir="asc">🌍 Work type</button>
+      <button class="sort-pill"        id="sp-salary-asc"   data-sort-key="salary" data-sort-dir="asc">💰 Salary low → high ↑</button>
+      <button class="sort-pill"        id="sp-salary-desc"  data-sort-key="salary" data-sort-dir="desc">💰 Salary high → low ↓</button>
     </div>
-    <button class="sort-pill" id="hideInactiveBtn" onclick="toggleHideInactive()" style="margin-left:auto">Hide inactive</button>
+    <button class="sort-pill" id="hideInactiveBtn"  style="margin-left:auto">Hide inactive</button>
   </div>
   <div class="table-wrap">
     <table>
       <thead><tr>
-        <th id="th-company"  onclick="thSort('alpha')">Company <span id="tharr-company">↕</span></th>
+        <th id="th-company"  data-th-sort="alpha">Company <span id="tharr-company">↕</span></th>
         <th>Role</th>
         <th>Location</th>
-        <th id="th-worktype" onclick="thSort('worktype')">Type <span id="tharr-worktype">↕</span></th>
+        <th id="th-worktype" data-th-sort="worktype">Type <span id="tharr-worktype">↕</span></th>
         <th>Status</th>
-        <th id="th-salary"   onclick="thSort('salary')">Salary <span id="tharr-salary">↕</span></th>
+        <th id="th-salary"   data-th-sort="salary">Salary <span id="tharr-salary">↕</span></th>
         <th>Industry</th>
         <th>Resume</th>
-        <th id="th-date"     onclick="thSort('date')" class="sorted">Applied <span id="tharr-date">↓</span></th>
+        <th id="th-date"     data-th-sort="date" class="sorted">Applied <span id="tharr-date">↓</span></th>
         <th>Deadline</th>
       </tr></thead>
       <tbody id="tableBody"></tbody>
@@ -1164,8 +1164,8 @@
 <div class="view" id="view-timeline">
   <div class="timeline-view">
     <div class="timeline-sub-tabs">
-      <button class="timeline-sub-tab active" id="tl-feed-btn" onclick="switchTimelineView('feed')">Feed</button>
-      <button class="timeline-sub-tab"        id="tl-cal-btn"  onclick="switchTimelineView('cal')">Calendar</button>
+      <button class="timeline-sub-tab active" id="tl-feed-btn" >Feed</button>
+      <button class="timeline-sub-tab"        id="tl-cal-btn"  >Calendar</button>
     </div>
     <div id="tl-feed"></div>
     <div id="tl-cal" style="display:none"></div>
@@ -1176,7 +1176,7 @@
   <div class="templates-view">
     <div class="templates-header">
       <span class="templates-title">Email templates</span>
-      <button class="btn-add" onclick="openTemplateEditor()">
+      <button class="btn-add" >
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
         New template
       </button>
@@ -1185,11 +1185,11 @@
   </div>
 </div>
 
-<div class="template-modal-backdrop" id="templateEditorBackdrop" onclick="if(event.target===this)closeTemplateEditor()">
+<div class="template-modal-backdrop" id="templateEditorBackdrop" >
   <div class="template-modal">
     <div class="template-modal-header">
       <span class="template-modal-title" id="templateEditorTitle">New template</span>
-      <button class="modal-close" onclick="closeTemplateEditor()">×</button>
+      <button class="modal-close" >×</button>
     </div>
     <div class="form-group">
       <label>Template name</label>
@@ -1205,36 +1205,36 @@
     </div>
     <p class="panel-hint">Use <code style="background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:11px">{{company}}</code>, <code style="background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:11px">{{role}}</code>, and <code style="background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:11px">{{your_name}}</code> as placeholders.</p>
     <div style="display:flex;gap:8px;justify-content:flex-end">
-      <button class="btn-cancel" onclick="closeTemplateEditor()">Cancel</button>
-      <button class="btn-save" onclick="saveTemplate()">Save template</button>
+      <button class="btn-cancel" >Cancel</button>
+      <button class="btn-save">Save template</button>
     </div>
   </div>
 </div>
 
-<div class="template-picker-backdrop" id="templatePickerBackdrop" onclick="if(event.target===this)closeTemplatePicker()">
+<div class="template-picker-backdrop" id="templatePickerBackdrop" >
   <div class="template-picker">
     <div class="template-picker-title">Choose a template</div>
     <div id="templatePickerList"></div>
-    <button class="btn-cancel" style="margin-top:4px" onclick="closeTemplatePicker()">Cancel</button>
+    <button class="btn-cancel" style="margin-top:4px">Cancel</button>
   </div>
 </div>
 
-<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+<div class="modal-overlay" id="modalOverlay" >
   <div class="modal">
     <div class="modal-header">
       <span id="modalTitle">New application ✨</span>
-      <button class="modal-close" onclick="closeModal()">×</button>
+      <button class="modal-close" >×</button>
     </div>
 
     <div class="modal-tabs">
-      <button class="modal-tab active" id="mtab-details"   onclick="switchModalTab('details')">Details</button>
-      <button class="modal-tab"        id="mtab-contacts" onclick="switchModalTab('contacts')">Contacts</button>
-      <button class="modal-tab"        id="mtab-cover"    onclick="switchModalTab('cover')">Cover letter</button>
-      <button class="modal-tab"        id="mtab-emails"  onclick="switchModalTab('emails')">Emails</button>
-      <button class="modal-tab"        id="mtab-resume"  onclick="switchModalTab('resume')">Resume</button>
-      <button class="modal-tab"        id="mtab-qa"      onclick="switchModalTab('qa')">Bonus Q&amp;A</button>
-      <button class="modal-tab"        id="mtab-notes"    onclick="switchModalTab('notes')">Notes</button>
-      <button class="modal-tab"        id="mtab-activity" onclick="switchModalTab('activity')">Activity</button>
+      <button class="modal-tab active" id="mtab-details"   data-modal-tab="details">Details</button>
+      <button class="modal-tab"        id="mtab-contacts" data-modal-tab="contacts">Contacts</button>
+      <button class="modal-tab"        id="mtab-cover"    data-modal-tab="cover">Cover letter</button>
+      <button class="modal-tab"        id="mtab-emails"  data-modal-tab="emails">Emails</button>
+      <button class="modal-tab"        id="mtab-resume"  data-modal-tab="resume">Resume</button>
+      <button class="modal-tab"        id="mtab-qa"      data-modal-tab="qa">Bonus Q&amp;A</button>
+      <button class="modal-tab"        id="mtab-notes"    data-modal-tab="notes">Notes</button>
+      <button class="modal-tab"        id="mtab-activity" data-modal-tab="activity">Activity</button>
     </div>
 
     <div class="modal-panel active" id="mpanel-details">
@@ -1269,14 +1269,14 @@
     <div class="modal-panel" id="mpanel-contacts">
       <p class="panel-hint">People you've spoken to at this company — recruiters, hiring managers, interviewers.</p>
       <div id="contactsList"></div>
-      <button class="btn-add-contact" onclick="addContact()">+ Add contact</button>
+      <button class="btn-add-contact">+ Add contact</button>
     </div>
 
     <div class="modal-panel" id="mpanel-cover">
       <p class="panel-hint" style="margin-bottom:10px">Upload a file or write/paste your cover letter below — or both.</p>
 
       <div class="resume-drop" id="coverDrop"
-        onclick="document.getElementById('coverInput').click()"
+       
         ondragover="event.preventDefault();this.classList.add('dragover')"
         ondragleave="this.classList.remove('dragover')"
         ondrop="handleCoverDrop(event)">
@@ -1295,7 +1295,7 @@
 
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
         <span style="font-size:11px;font-weight:700;color:var(--text3)">Written cover letter</span>
-        <button class="btn-template primary" style="flex:0;white-space:nowrap" onclick="openTemplatePicker()">Use template</button>
+        <button class="btn-template primary" style="flex:0;white-space:nowrap">Use template</button>
       </div>
       <textarea id="f-cover" style="width:100%;min-height:160px;font-weight:400;line-height:1.6" placeholder="Dear Hiring Manager,&#10;&#10;I'm excited to apply for..."></textarea>
     </div>
@@ -1303,7 +1303,7 @@
     <div class="modal-panel" id="mpanel-emails">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <p class="panel-hint" style="margin:0">Emails for this application — follow-ups, thank yous, etc.</p>
-        <button class="btn-template primary" style="flex:0;white-space:nowrap;margin-left:10px" onclick="openEmailPicker()">+ From template</button>
+        <button class="btn-template primary" style="flex:0;white-space:nowrap;margin-left:10px">+ From template</button>
       </div>
       <div id="emailList"></div>
     </div>
@@ -1311,7 +1311,7 @@
     <div class="modal-panel" id="mpanel-resume">
       <p class="panel-hint">Upload the resume you submitted for this role. Stored locally on your device.</p>
       <div class="resume-drop" id="resumeDrop"
-        onclick="document.getElementById('resumeInput').click()"
+       
         ondragover="event.preventDefault();this.classList.add('dragover')"
         ondragleave="this.classList.remove('dragover')"
         ondrop="handleResumeDrop(event)">
@@ -1326,13 +1326,13 @@
     <div class="modal-panel" id="mpanel-qa">
       <p class="panel-hint">Save answers to bonus application questions so you can reuse them.</p>
       <div id="qaList"></div>
-      <button class="btn-add-qa" onclick="addQA()">+ Add question</button>
+      <button class="btn-add-qa">+ Add question</button>
     </div>
 
     <div class="modal-panel" id="mpanel-notes">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
         <p class="panel-hint" style="margin:0">Interview prep, contacts, follow-up reminders...</p>
-        <button class="btn-template primary" style="flex:0;white-space:nowrap;margin-left:10px" onclick="applyPrepTemplate()">Use prep template</button>
+        <button class="btn-template primary" style="flex:0;white-space:nowrap;margin-left:10px" >Use prep template</button>
       </div>
       <textarea id="f-notes" style="width:100%;min-height:120px;font-weight:400;line-height:1.6" placeholder="e.g. Spoke with Sarah in engineering. Next round is a system design..."></textarea>
     </div>
@@ -1344,24 +1344,24 @@
 
     <div class="modal-footer" style="justify-content:space-between">
       <div style="display:flex;gap:6px;align-items:center">
-        <button class="btn-delete"    id="btnDelete"    style="display:none" onclick="deleteJob()">Delete</button>
-        <button class="btn-secondary" id="btnDuplicate" style="display:none" onclick="openDupeModal()">Duplicate</button>
-        <button class="btn-secondary" id="btnExportPDF" style="display:none" onclick="exportJobPDF()">Export PDF</button>
-        <button class="btn-secondary" id="btnPrepMode"  style="display:none" onclick="openPrepMode(editId)">Prep mode</button>
+        <button class="btn-delete"    id="btnDelete"    style="display:none" >Delete</button>
+        <button class="btn-secondary" id="btnDuplicate" style="display:none" >Duplicate</button>
+        <button class="btn-secondary" id="btnExportPDF" style="display:none" >Export PDF</button>
+        <button class="btn-secondary" id="btnPrepMode"  style="display:none">Prep mode</button>
       </div>
       <div style="display:flex;gap:8px;align-items:center">
-        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-        <button class="btn-save"   id="btnSave" onclick="saveJob()">Save</button>
+        <button class="btn-cancel" >Cancel</button>
+        <button class="btn-save"   id="btnSave" >Save</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="template-modal-backdrop" id="dupeModalBackdrop" onclick="if(event.target===this)closeDupeModal()" style="z-index:600">
+<div class="template-modal-backdrop" id="dupeModalBackdrop"  style="z-index:600">
   <div class="template-modal" style="max-width:400px">
     <div class="template-modal-header">
       <span class="template-modal-title">Duplicate application</span>
-      <button class="modal-close" onclick="closeDupeModal()">×</button>
+      <button class="modal-close" >×</button>
     </div>
     <p class="dupe-always">Company, location, work type, and salary always carry over.</p>
     <p style="font-size:11px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Also copy:</p>
@@ -1376,26 +1376,26 @@
       <label class="dupe-checkbox-row"><input type="checkbox" id="dupe-dates">  <span>Interview date &amp; deadlines</span></label>
     </div>
     <div style="display:flex;gap:8px;justify-content:flex-end">
-      <button class="btn-cancel" onclick="closeDupeModal()">Cancel</button>
-      <button class="btn-save" onclick="confirmDuplicate()">Duplicate</button>
+      <button class="btn-cancel" >Cancel</button>
+      <button class="btn-save" >Duplicate</button>
     </div>
   </div>
 </div>
 
 <div class="context-menu" id="contextMenu" style="display:none">
-  <button class="context-item" id="contextDupe" onclick="contextDuplicate()">
+  <button class="context-item" id="contextDupe">
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M1 8V2a1 1 0 011-1h6"/>
     </svg>
     Duplicate
   </button>
-  <button class="context-item" id="contextEdit" onclick="contextEdit()">
+  <button class="context-item" id="contextEdit">
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M8.5 1.5l2 2L4 10H2v-2l6.5-6.5z"/>
     </svg>
     Edit
   </button>
-  <button class="context-item" id="contextPrep" onclick="contextPrep()">
+  <button class="context-item" id="contextPrep">
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M1 2h10M1 6h7M1 10h5"/><circle cx="10" cy="9" r="2"/>
     </svg>
@@ -1403,19 +1403,19 @@
   </button>
 </div>
 
-<div class="template-modal-backdrop" id="changeNameBackdrop" onclick="if(event.target===this)closeChangeName()" style="z-index:500">
+<div class="template-modal-backdrop" id="changeNameBackdrop"  style="z-index:500">
   <div class="template-modal" style="max-width:380px">
     <div class="template-modal-header">
       <span class="template-modal-title">Change name</span>
-      <button class="modal-close" onclick="closeChangeName()">×</button>
+      <button class="modal-close" >×</button>
     </div>
     <div class="form-group" style="margin-top:10px">
       <label>Your name</label>
-      <input id="change-name-input" type="text" placeholder="e.g. Alex Johnson" style="width:100%" onkeydown="if(event.key==='Enter')saveChangedName()">
+      <input id="change-name-input" type="text" placeholder="e.g. Alex Johnson" style="width:100%" >
     </div>
     <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">
-      <button class="btn-cancel" onclick="closeChangeName()">Cancel</button>
-      <button class="btn-save" onclick="saveChangedName()">Save</button>
+      <button class="btn-cancel" >Cancel</button>
+      <button class="btn-save" >Save</button>
     </div>
   </div>
 </div>
@@ -1427,16 +1427,16 @@
     <p style="font-size:13px;color:var(--text2);font-weight:600;line-height:1.6;margin-bottom:16px">Before we get started, what's your name? It'll be used to auto-fill your email templates.</p>
     <div class="form-group" style="width:100%;text-align:left">
       <label>Your name</label>
-      <input id="welcome-name" type="text" placeholder="e.g. Alex Johnson" style="width:100%" onkeydown="if(event.key==='Enter')saveUserName()">
+      <input id="welcome-name" type="text" placeholder="e.g. Alex Johnson" style="width:100%" >
     </div>
-    <button class="btn-save" style="width:100%;margin-top:8px" onclick="saveUserName()">Let's go →</button>
+    <button class="btn-save" style="width:100%;margin-top:8px" >Let's go →</button>
   </div>
 </div>
 
 <div class="prep-toast" id="prepToast" style="display:none">
   <span class="prep-toast-text">✨ Moving to Interviewing — add prep notes?</span>
-  <button class="prep-toast-yes" onclick="applyPrepTemplate()">Add notes</button>
-  <button class="prep-toast-no"  onclick="dismissPrepToast()">No thanks</button>
+  <button class="prep-toast-yes" >Add notes</button>
+  <button class="prep-toast-no"  >No thanks</button>
 </div>
 
 <div class="prep-mode" id="prepMode">
@@ -1447,7 +1447,7 @@
       </div>
       <span class="prep-mode-label">Interview prep</span>
     </div>
-    <button class="prep-mode-close" onclick="closePrepMode()">✕ Exit prep mode</button>
+    <button class="prep-mode-close" >✕ Exit prep mode</button>
   </div>
   <div class="prep-mode-body">
     <div class="prep-mode-left" id="prepLeft"></div>
@@ -1458,7 +1458,7 @@
 <div class="shortcuts-card" id="shortcutsCard">
   <div class="shortcuts-card-title">
     Keyboard shortcuts
-    <button onclick="toggleShortcutsCard()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px;line-height:1">×</button>
+    <button  style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px;line-height:1">×</button>
   </div>
   <div class="shortcuts-grid">
     <span class="shortcut-key">N</span><span class="shortcut-label">New job</span>
@@ -1491,2707 +1491,13 @@
     <div class="tour-footer">
       <div class="tour-dots" id="tourDots"></div>
       <div class="tour-btns">
-        <button class="tour-btn skip" onclick="endTour()">Skip</button>
-        <button class="tour-btn next" id="tourNextBtn" onclick="tourNext()">Next →</button>
+        <button class="tour-btn skip" >Skip</button>
+        <button class="tour-btn next" id="tourNextBtn" >Next →</button>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-const STATUSES = ['Applied', 'Phone Screen', 'Interviewing', 'Offer', 'Rejected', 'Ghosted'];
-
-const STATUS_CFG = {
-  'Applied':      { color: '#38BDF8', bg: 'rgba(56,189,248,0.18)',   text: '#7DD3FC', col: 'rgba(56,189,248,0.08)',   emoji: '📬' },
-  'Phone Screen': { color: '#F472B6', bg: 'rgba(244,114,182,0.18)', text: '#F9A8D4', col: 'rgba(244,114,182,0.08)', emoji: '📞' },
-  'Interviewing': { color: '#A78BFA', bg: 'rgba(167,139,250,0.18)', text: '#C4B5FD', col: 'rgba(167,139,250,0.08)', emoji: '✨' },
-  'Offer':        { color: '#34D399', bg: 'rgba(52,211,153,0.18)',  text: '#6EE7B7', col: 'rgba(52,211,153,0.08)',  emoji: '🎉' },
-  'Rejected':     { color: '#FB7185', bg: 'rgba(251,113,133,0.18)', text: '#FCA5A5', col: 'rgba(251,113,133,0.08)', emoji: '💌' },
-  'Ghosted':      { color: '#D1B06B', bg: 'rgba(209,176,107,0.18)', text: '#FDE68A', col: 'rgba(209,176,107,0.08)', emoji: '👻' },
-};
-
-const THEMES = {
-  // dark
-  purple:         { accent:'#A78BFA', accentBg:'rgba(167,139,250,0.2)', accentBorder:'#7C5FCC', accentText:'#DDD6FE', gradA:'#C084FC', gradB:'#818CF8', bg:'#1A1030', surface:'#241840', surface2:'#2E1F52', border:'rgba(167,139,250,0.15)', border2:'rgba(167,139,250,0.28)', text:'#EDE9FE', text2:'#A78BFA', text3:'#6D5FA0' },
-  pink:           { accent:'#EC4899', accentBg:'rgba(236,72,153,0.15)',  accentBorder:'#BE185D', accentText:'#FBCFE8', gradA:'#F472B6', gradB:'#FB7185', bg:'#1C0A14', surface:'#2A1020', surface2:'#381528', border:'rgba(244,114,182,0.15)', border2:'rgba(244,114,182,0.28)', text:'#FDF2F8', text2:'#F472B6', text3:'#7A3050' },
-  peach:          { accent:'#FB923C', accentBg:'rgba(251,146,60,0.2)',   accentBorder:'#C2410C', accentText:'#FED7AA', gradA:'#FB923C', gradB:'#F59E0B', bg:'#1C1004', surface:'#281808', surface2:'#33200C', border:'rgba(251,146,60,0.15)',  border2:'rgba(251,146,60,0.28)',  text:'#FFF7ED', text2:'#FB923C', text3:'#7C3508' },
-  mint:           { accent:'#10B981', accentBg:'rgba(16,185,129,0.15)',  accentBorder:'#059669', accentText:'#A7F3D0', gradA:'#34D399', gradB:'#059669', bg:'#021810', surface:'#072418', surface2:'#0D3020', border:'rgba(52,211,153,0.15)',  border2:'rgba(52,211,153,0.28)',  text:'#ECFDF5', text2:'#34D399', text3:'#1A5C38' },
-  ocean:          { accent:'#0EA5E9', accentBg:'rgba(14,165,233,0.15)',  accentBorder:'#0369A1', accentText:'#BAE6FD', gradA:'#38BDF8', gradB:'#3B82F6', bg:'#030D1C', surface:'#071828', surface2:'#0C2238', border:'rgba(56,189,248,0.15)',  border2:'rgba(56,189,248,0.28)',  text:'#F0F9FF', text2:'#38BDF8', text3:'#1A4A6C' },
-  midnight:       { accent:'#94A3B8', accentBg:'rgba(148,163,184,0.15)',accentBorder:'#475569',  accentText:'#E2E8F0', gradA:'#64748B', gradB:'#334155', bg:'#020408', surface:'#0D1117', surface2:'#161B22', border:'rgba(255,255,255,0.06)',border2:'rgba(255,255,255,0.12)', text:'#F1F5F9', text2:'#94A3B8', text3:'#3D4A5C' },
-  // light
-  'purple-light': { accent:'#7C3AED', accentBg:'rgba(124,58,237,0.1)',  accentBorder:'#7C3AED', accentText:'#5B21B6', gradA:'#C084FC', gradB:'#818CF8', bg:'#FAF8FF', surface:'#FFFFFF', surface2:'#F0EBFF', border:'rgba(124,58,237,0.12)', border2:'rgba(124,58,237,0.22)', text:'#1E1030', text2:'#6D28D9', text3:'#9D85C9' },
-  'pink-light':   { accent:'#DB2777', accentBg:'rgba(219,39,119,0.1)',  accentBorder:'#BE185D', accentText:'#831843', gradA:'#F472B6', gradB:'#FB7185', bg:'#FFF7FA', surface:'#FFFFFF', surface2:'#FDE8F1', border:'rgba(219,39,119,0.12)', border2:'rgba(219,39,119,0.22)', text:'#1C0A14', text2:'#BE185D', text3:'#C07090' },
-  'peach-light':  { accent:'#EA580C', accentBg:'rgba(234,88,12,0.1)',   accentBorder:'#C2410C', accentText:'#7C2D12', gradA:'#FB923C', gradB:'#F59E0B', bg:'#FFFAF7', surface:'#FFFFFF', surface2:'#FEF0E4', border:'rgba(234,88,12,0.12)',  border2:'rgba(234,88,12,0.22)',  text:'#1C1004', text2:'#C2410C', text3:'#C09060' },
-  'mint-light':   { accent:'#059669', accentBg:'rgba(5,150,105,0.1)',   accentBorder:'#047857', accentText:'#064E3B', gradA:'#34D399', gradB:'#059669', bg:'#F7FFFC', surface:'#FFFFFF', surface2:'#E6FAF4', border:'rgba(5,150,105,0.12)',  border2:'rgba(5,150,105,0.22)',  text:'#022810', text2:'#047857', text3:'#60A890' },
-  'ocean-light':  { accent:'#0369A1', accentBg:'rgba(3,105,161,0.1)',   accentBorder:'#0369A1', accentText:'#0C4A6E', gradA:'#38BDF8', gradB:'#3B82F6', bg:'#F7FBFF', surface:'#FFFFFF', surface2:'#E8F4FD', border:'rgba(3,105,161,0.12)',  border2:'rgba(3,105,161,0.22)',  text:'#030D1C', text2:'#0369A1', text3:'#6090B0' },
-  'midnight-light':{ accent:'#475569', accentBg:'rgba(71,85,105,0.1)',  accentBorder:'#334155', accentText:'#1E293B', gradA:'#64748B', gradB:'#475569', bg:'#F8FAFC', surface:'#FFFFFF', surface2:'#F1F5F9', border:'rgba(71,85,105,0.12)',  border2:'rgba(71,85,105,0.22)',  text:'#0F172A', text2:'#475569', text3:'#94A3B8' },
-};
-
-let isDark = true;
-let currentThemeName = 'purple';
-
-function applyTheme(name) {
-  currentThemeName = name;
-  const key = isDark ? name : name + '-light';
-  const t   = THEMES[key] || THEMES[name];
-  const root = document.documentElement.style;
-  root.setProperty('--accent',        t.accent);
-  root.setProperty('--accent-bg',     t.accentBg);
-  root.setProperty('--accent-border', t.accentBorder);
-  root.setProperty('--accent-text',   t.accentText);
-  root.setProperty('--grad-a',   t.gradA);
-  root.setProperty('--grad-b',   t.gradB);
-  root.setProperty('--bg',       t.bg);
-  root.setProperty('--surface',  t.surface);
-  root.setProperty('--surface2', t.surface2);
-  root.setProperty('--border',   t.border);
-  root.setProperty('--border2',  t.border2);
-  root.setProperty('--text',     t.text);
-  root.setProperty('--text2',    t.text2);
-  root.setProperty('--text3',    t.text3);
-  document.body.style.background = t.bg;
-  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
-  document.getElementById('sw-' + name)?.classList.add('active');
-  localStorage.setItem('jobquest_theme', name);
-  updateModeBtn();
-  particleColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || t.accent;
-  if (particleActive) {
-    cancelAnimationFrame(particleRaf);
-    tickParticles();
-  }
-}
-
-function toggleMode() {
-  isDark = !isDark;
-  localStorage.setItem('jobquest_mode', isDark ? 'dark' : 'light');
-  applyTheme(currentThemeName);
-}
-
-function updateModeBtn() {
-  const btn = document.getElementById('modeBtn');
-  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
-}
-
-const CONFETTI_COLORS = ['#F472B6','#A78BFA','#38BDF8','#34D399','#FBBF24','#FB7185','#FCD34D'];
-let particles = [];
-let confettiRaf = null;
-
-function launchConfetti(originEl) {
-  const canvas = document.getElementById('confetti-canvas');
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const rect = originEl?.getBoundingClientRect();
-  const cx = rect ? rect.left + rect.width  / 2 : canvas.width  / 2;
-  const cy = rect ? rect.top  + rect.height / 2 : canvas.height / 2;
-
-  particles = Array.from({ length: 100 }, () => {
-    const angle = Math.random() * Math.PI * 2;
-    const speed = 3 + Math.random() * 8;
-    return {
-      x: cx, y: cy,
-      vx: Math.cos(angle) * speed,
-      vy: Math.sin(angle) * speed - 5,
-      color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
-      w: 6 + Math.random() * 6,
-      h: 4 + Math.random() * 4,
-      rot:  Math.random() * Math.PI * 2,
-      rotV: (Math.random() - 0.5) * 0.3,
-      alpha: 1,
-      circle: Math.random() < 0.5,
-    };
-  });
-
-  if (confettiRaf) cancelAnimationFrame(confettiRaf);
-  tickConfetti(canvas.getContext('2d'), canvas.width, canvas.height);
-}
-
-function tickConfetti(ctx, w, h) {
-  ctx.clearRect(0, 0, w, h);
-  let alive = false;
-
-  for (const p of particles) {
-    p.vy += 0.25;
-    p.vx *= 0.99;
-    p.x  += p.vx;
-    p.y  += p.vy;
-    p.rot   += p.rotV;
-    p.alpha -= 0.012;
-    if (p.alpha <= 0) continue;
-    alive = true;
-
-    ctx.save();
-    ctx.globalAlpha = p.alpha;
-    ctx.fillStyle   = p.color;
-    ctx.translate(p.x, p.y);
-    ctx.rotate(p.rot);
-    if (p.circle) {
-      ctx.beginPath();
-      ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2);
-      ctx.fill();
-    } else {
-      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-    }
-    ctx.restore();
-  }
-
-  if (alive) {
-    confettiRaf = requestAnimationFrame(() => tickConfetti(ctx, w, h));
-  } else {
-    ctx.clearRect(0, 0, w, h);
-  }
-}
-
-let jobs   = [];
-let editId = null;
-
-function persist() {
-  localStorage.setItem('jobquest_jobs', JSON.stringify(jobs));
-}
-
-function toggleSettings(event) {
-  event.stopPropagation();
-  document.getElementById('settingsDropdown').classList.toggle('open');
-}
-
-document.addEventListener('click', e => {
-  document.getElementById('settingsDropdown')?.classList.remove('open');
-  if (!e.target.closest('#searchBar') && !e.target.closest('#filterBar')) {
-    collapseFilters();
-  }
-});
-
-function exportCSV() {
-  document.getElementById('settingsDropdown').classList.remove('open');
-
-  const headers = ['Company', 'Role', 'Location', 'Work type', 'Status', 'Salary', 'Date applied', 'Link', 'Notes'];
-  const rows = filteredJobs().map(job => [
-    job.company,
-    job.role,
-    job.location,
-    job.worktype,
-    job.status,
-    job.salary,
-    job.date,
-    job.link,
-    job.notes,
-  ].map(val => `"${(val || '').replace(/"/g, '""')}"`));
-
-  const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-  const filename = `jobquest-${new Date().toISOString().slice(0, 10)}.csv`;
-
-  const a = document.createElement('a');
-  a.href     = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = filename;
-  a.click();
-}
-
-const DEFAULT_INDUSTRIES = [
-  'Technology', 'Engineering', 'Finance', 'Healthcare', 'Education',
-  'Marketing', 'Design', 'Legal', 'Retail', 'Hospitality',
-  'Media', 'Non-profit', 'Government', 'Consulting', 'Real Estate', 'Other',
-];
-
-let customIndustries = [];
-let activeIndustries = new Set();
-
-function allIndustries() {
-  return [...DEFAULT_INDUSTRIES, ...customIndustries];
-}
-
-function persistIndustries() {
-  localStorage.setItem('jobquest_industries', JSON.stringify(customIndustries));
-}
-
-function usedIndustries() {
-  return [...new Set(jobs.map(j => j.industry).filter(Boolean))];
-}
-
-function populateIndustrySelect(current) {
-  const sel = document.getElementById('f-industry');
-  if (!sel) return;
-  const industries = allIndustries();
-  sel.innerHTML = `<option value="">— None —</option>` +
-    industries.map(i => `<option value="${i}" ${i === current ? 'selected' : ''}>${i}</option>`).join('') +
-    `<option value="__custom__">Custom...</option>`;
-  if (current && !industries.includes(current)) {
-    sel.innerHTML += `<option value="${current}" selected>${current}</option>`;
-  }
-}
-
-function handleIndustryChange(sel) {
-  if (sel.value === '__custom__') {
-    const name = window.prompt('Enter industry name:')?.trim();
-    if (name) {
-      if (!allIndustries().includes(name)) {
-        customIndustries.push(name);
-        persistIndustries();
-      }
-      populateIndustrySelect(name);
-    } else {
-      sel.value = '';
-    }
-  }
-}
-
-let activeStatuses  = new Set(Object.keys({Applied:1,'Phone Screen':1,Interviewing:1,Offer:1,Rejected:1,Ghosted:1}));
-let hideInactive    = false;
-let activeWorktypes = new Set(['Remote', 'Hybrid', 'On-site']);
-let searchQuery     = '';
-let salaryMin       = null;
-let salaryMax       = null;
-
-function buildFilterPills() {
-  const statusEl   = document.getElementById('statusFilters');
-  const worktypeEl = document.getElementById('worktypeFilters');
-  const industryEl = document.getElementById('industryFilters');
-
-  statusEl.innerHTML = STATUSES.map(s => `
-    <button class="filter-pill ${activeStatuses.has(s) ? 'active' : ''}"
-      onclick="toggleStatusFilter('${s}')">${STATUS_CFG[s].emoji} ${s}</button>
-  `).join('');
-
-  worktypeEl.innerHTML = '';
-  ['Remote', 'Hybrid', 'On-site'].forEach(w => {
-    const btn = document.createElement('button');
-    btn.className = `filter-pill ${activeWorktypes.has(w) ? 'active' : ''}`;
-    btn.textContent = w;
-    btn.onclick = () => toggleWorktypeFilter(w);
-    worktypeEl.appendChild(btn);
-  });
-
-  const used = usedIndustries();
-  const row  = document.getElementById('industryFilterRow');
-  if (row) row.style.display = used.length ? 'flex' : 'none';
-
-  if (industryEl) {
-    // sync activeIndustries with current used industries
-    used.forEach(i => { if (!activeIndustries.has(i)) activeIndustries.add(i); });
-    [...activeIndustries].forEach(i => { if (!used.includes(i)) activeIndustries.delete(i); });
-
-    industryEl.innerHTML = used.map(i => `
-      <button class="filter-pill ${activeIndustries.has(i) ? 'active' : ''}"
-        onclick="toggleIndustryFilter('${i.replace(/'/g, "\'")}')">${i}</button>
-    `).join('');
-  }
-}
-
-function toggleIndustryFilter(industry) {
-  activeIndustries.has(industry) ? activeIndustries.delete(industry) : activeIndustries.add(industry);
-  buildFilterPills();
-  applyFilters();
-}
-
-function toggleStatusFilter(status) {
-  activeStatuses.has(status) ? activeStatuses.delete(status) : activeStatuses.add(status);
-  buildFilterPills();
-  applyFilters();
-}
-
-function toggleWorktypeFilter(worktype) {
-  activeWorktypes.has(worktype) ? activeWorktypes.delete(worktype) : activeWorktypes.add(worktype);
-  buildFilterPills();
-  applyFilters();
-}
-
-function expandFilters() {
-  document.getElementById('filterBar').classList.add('expanded');
-}
-
-function collapseFilters() {
-  const hasActive = hasActiveFilters();
-  if (!hasActive) {
-    document.getElementById('filterBar').classList.remove('expanded');
-  }
-}
-
-function hasActiveFilters() {
-  return searchQuery !== '' ||
-    salaryMin !== null ||
-    salaryMax !== null ||
-    activeStatuses.size  < STATUSES.length ||
-    activeWorktypes.size < 3 ||
-    activeIndustries.size < usedIndustries().length;
-}
-
-function applyFilters() {
-  searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
-  salaryMin   = parseFloat(document.getElementById('salaryMin').value) || null;
-  salaryMax   = parseFloat(document.getElementById('salaryMax').value) || null;
-  if (hasActiveFilters()) expandFilters();
-  updateFilterCount();
-  render();
-}
-
-function clearFilters() {
-  activeStatuses  = new Set(STATUSES);
-  activeWorktypes = new Set(['Remote', 'Hybrid', 'On-site']);
-  activeIndustries = new Set(usedIndustries());
-  searchQuery     = '';
-  salaryMin       = null;
-  salaryMax       = null;
-  document.getElementById('searchInput').value = '';
-  document.getElementById('salaryMin').value   = '';
-  document.getElementById('salaryMax').value   = '';
-  hideInactive = false;
-  localStorage.setItem('jobquest_hide_inactive', '');
-  document.getElementById('filterBar').classList.remove('expanded');
-  buildFilterPills();
-  updateHideInactiveBtn();
-  updateFilterCount();
-  render();
-}
-
-function toggleHideInactive() {
-  hideInactive = !hideInactive;
-  localStorage.setItem('jobquest_hide_inactive', hideInactive ? '1' : '');
-
-  if (hideInactive) {
-    activeStatuses.delete('Rejected');
-    activeStatuses.delete('Ghosted');
-  } else {
-    activeStatuses.add('Rejected');
-    activeStatuses.add('Ghosted');
-  }
-
-  buildFilterPills();
-  updateHideInactiveBtn();
-  updateFilterCount();
-  render();
-}
-
-function updateHideInactiveBtn() {
-  const btn = document.getElementById('hideInactiveBtn');
-  if (!btn) return;
-  btn.classList.toggle('active', hideInactive);
-  btn.textContent = hideInactive ? 'Show inactive' : 'Hide inactive';
-}
-
-function updateFilterCount() {
-  const allStatuses  = STATUSES.length;
-  const allWorktypes = 3;
-  const used = usedIndustries();
-  const inactive =
-    (allStatuses  - activeStatuses.size) +
-    (allWorktypes - activeWorktypes.size) +
-    (used.length  - activeIndustries.size) +
-    (searchQuery ? 1 : 0) +
-    (salaryMin !== null ? 1 : 0) +
-    (salaryMax !== null ? 1 : 0);
-
-  const badge = document.getElementById('filterCount');
-  if (inactive > 0) {
-    badge.textContent = inactive;
-    badge.style.display = 'inline';
-  } else {
-    badge.style.display = 'none';
-  }
-}
-
-function filteredJobs() {
-  return jobs.filter(job => {
-    if (!activeStatuses.has(job.status))   return false;
-    if (!activeWorktypes.has(job.worktype)) return false;
-    if (job.industry && usedIndustries().length && !activeIndustries.has(job.industry)) return false;
-
-    if (searchQuery) {
-      const haystack = `${job.company} ${job.role}`.toLowerCase();
-      if (!haystack.includes(searchQuery)) return false;
-    }
-
-    if (salaryMin !== null || salaryMax !== null) {
-      const mid = parseSalary(job.salary);
-      if (mid < 0) return false;
-      if (salaryMin !== null && mid < salaryMin) return false;
-      if (salaryMax !== null && mid > salaryMax) return false;
-    }
-
-    return true;
-  });
-}
-
-const GOAL_DEFAULTS = { weekly: 5, monthly: 15, interviews: 3, offers: 1 };
-let goalTargets = { ...GOAL_DEFAULTS };
-
-function persistGoals() {
-  localStorage.setItem('jobquest_goals', JSON.stringify(goalTargets));
-}
-
-function weekRange() {
-  const now = new Date();
-  const day = now.getDay();
-  const mon = new Date(now);
-  mon.setDate(now.getDate() - (day === 0 ? 6 : day - 1));
-  const sun = new Date(mon);
-  sun.setDate(mon.getDate() + 6);
-  return [mon.toISOString().slice(0, 10), sun.toISOString().slice(0, 10)];
-}
-
-function monthRange() {
-  const now = new Date();
-  const y = now.getFullYear(), m = String(now.getMonth() + 1).padStart(2, '0');
-  const last = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-  return [`${y}-${m}-01`, `${y}-${m}-${String(last).padStart(2, '0')}`];
-}
-
-function countGoal(type) {
-  if (type === 'weekly') {
-    const [start, end] = weekRange();
-    return jobs.filter(j => j.status === 'Applied' && j.date >= start && j.date <= end).length;
-  }
-  if (type === 'monthly') {
-    const [start, end] = monthRange();
-    return jobs.filter(j => j.status === 'Applied' && j.date >= start && j.date <= end).length;
-  }
-  if (type === 'interviews') {
-    const [start, end] = monthRange();
-    return jobs.filter(j => j.interviewDate && j.interviewDate >= start && j.interviewDate <= end).length;
-  }
-  if (type === 'offers') {
-    return jobs.filter(j => j.status === 'Offer').length;
-  }
-  return 0;
-}
-
-function goalStatusText(current, target) {
-  const pct = target > 0 ? current / target : 0;
-  if (current >= target) return `Goal reached! 🎉`;
-  if (pct >= 0.75)       return `Almost there — keep going! 🔥`;
-  if (pct >= 0.5)        return `Halfway there 💪`;
-  if (current > 0)       return `Good start — keep it up!`;
-  return `Not started yet`;
-}
-
-function goalColor(current, target) {
-  const pct = target > 0 ? current / target : 0;
-  if (pct >= 1)    return '#34D399';
-  if (pct >= 0.75) return '#FBBF24';
-  return 'var(--accent)';
-}
-
-function renderGoals() {
-  const defs = [
-    { key: 'weekly',     label: 'Weekly applications',  period: 'Resets every Monday' },
-    { key: 'monthly',    label: 'Monthly applications', period: 'Resets 1st of each month' },
-    { key: 'interviews', label: 'Interviews this month', period: 'Resets 1st of each month' },
-    { key: 'offers',     label: 'Total offers',          period: 'All time' },
-  ];
-
-  document.getElementById('goalsGrid').innerHTML = defs.map(def => {
-    const current = countGoal(def.key);
-    const target  = goalTargets[def.key];
-    const pct     = Math.min(100, target > 0 ? Math.round(current / target * 100) : 0);
-    const color   = goalColor(current, target);
-
-    return `
-      <div class="goal-card">
-        <div class="goal-card-top">
-          <span class="goal-label">${def.label}</span>
-          <span class="goal-period">${def.period}</span>
-        </div>
-        <div class="goal-count">${current} <span>/ ${target}</span></div>
-        <div class="goal-track"><div class="goal-fill" style="width:${pct}%;background:${color}"></div></div>
-        <div class="goal-status">${goalStatusText(current, target)}</div>
-        <div class="goal-edit-row">
-          <span class="goal-target-label">Target:</span>
-          <input class="goal-target-input" type="number" min="1" value="${target}"
-            onchange="updateGoalTarget('${def.key}', this.value)">
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-function updateGoalTarget(key, val) {
-  const n = Math.max(1, parseInt(val) || 1);
-  goalTargets[key] = n;
-  persistGoals();
-  renderGoals();
-  renderGoalsWidget();
-}
-
-function renderGoalsWidget() {
-  const el = document.getElementById('goalsWidget');
-  if (!el) return;
-
-  const defs = [
-    { key: 'weekly',     label: 'Weekly applications' },
-    { key: 'monthly',    label: 'Monthly applications' },
-    { key: 'interviews', label: 'Interviews this month' },
-    { key: 'offers',     label: 'Total offers' },
-  ];
-
-  el.innerHTML = `
-    <div class="goals-widget-title">Goals</div>
-    ${defs.map(def => {
-      const current = countGoal(def.key);
-      const target  = goalTargets[def.key];
-      const pct     = Math.min(100, target > 0 ? Math.round(current / target * 100) : 0);
-      const color   = goalColor(current, target);
-      return `
-        <div class="goal-mini-row">
-          <div class="goal-mini-label">${def.label}</div>
-          <div class="goal-mini-track"><div class="goal-mini-fill" style="width:${pct}%;background:${color}"></div></div>
-          <div class="goal-mini-val">${current}/${target}</div>
-        </div>
-      `;
-    }).join('')}
-    <div style="margin-top:10px;font-size:11px;color:var(--text3);font-weight:600">
-      Edit targets in the <span style="color:var(--accent);cursor:pointer;font-weight:700" onclick="switchTab('goals')">Goals tab →</span>
-    </div>
-  `;
-}
-
-let userName = '';
-
-function saveUserName() {
-  const input = document.getElementById('welcome-name').value.trim();
-  if (!input) { alert('Please enter your name.'); return; }
-  userName = input;
-  localStorage.setItem('jobquest_user_name', userName);
-  document.getElementById('welcomeBackdrop').classList.remove('open');
-  setTimeout(startTour, 400);
-}
-
-function promptChangeName() {
-  document.getElementById('settingsDropdown').classList.remove('open');
-  const input = document.getElementById('change-name-input');
-  if (input) input.value = userName || '';
-  document.getElementById('changeNameBackdrop').classList.add('open');
-  setTimeout(() => input?.focus(), 50);
-}
-
-function closeChangeName() {
-  document.getElementById('changeNameBackdrop').classList.remove('open');
-}
-
-function saveChangedName() {
-  const name = document.getElementById('change-name-input').value.trim();
-  if (!name) { alert('Please enter your name.'); return; }
-  userName = name;
-  localStorage.setItem('jobquest_user_name', userName);
-  closeChangeName();
-}
-
-const DEFAULT_TEMPLATES = [
-  {
-    id: 'tpl-1',
-    name: 'Follow-up after applying',
-    subject: 'Following up on my application — {{role}} at {{company}}',
-    body: `Hi,
-
-I recently applied for the {{role}} position at {{company}} and wanted to follow up to express my continued enthusiasm for the role.
-
-I'm really excited about the opportunity to contribute to your team and believe my background is a strong fit. I'd love the chance to discuss how I could add value.
-
-Please let me know if there's anything else you need from my end. I look forward to hearing from you.
-
-Best,
-{{your_name}}`,
-  },
-  {
-    id: 'tpl-2',
-    name: 'Thank you after interview',
-    subject: 'Thank you — {{role}} interview at {{company}}',
-    body: `Hi,
-
-Thank you so much for taking the time to speak with me today about the {{role}} role at {{company}}. It was a pleasure learning more about the team and the work you're doing.
-
-Our conversation reinforced my excitement about this opportunity, and I'm confident I could make a meaningful contribution.
-
-Thank you again for your time and consideration. I look forward to next steps.
-
-Best,
-{{your_name}}`,
-  },
-  {
-    id: 'tpl-3',
-    name: 'Request for feedback after rejection',
-    subject: 'Thank you for the update — {{role}} at {{company}}',
-    body: `Hi,
-
-Thank you for letting me know about your decision regarding the {{role}} position at {{company}}. While I'm disappointed, I appreciate you taking the time to follow up.
-
-If you're open to it, I'd welcome any feedback on my application or interview. It would be genuinely helpful as I continue my search.
-
-Thank you again for the opportunity. I wish you and the team all the best.
-
-Best,
-{{your_name}}`,
-  },
-  {
-    id: 'tpl-4',
-    name: 'Reaching out to a contact/recruiter',
-    subject: 'Reaching out — {{role}} opportunities at {{company}}',
-    body: `Hi,
-
-I hope this message finds you well. I came across your profile and noticed you work at {{company}} — I'm very interested in {{role}} opportunities there and wanted to reach out directly.
-
-I'd love to learn more about the team and whether there might be a fit. I'll keep it brief — happy to send over my resume or jump on a quick call at your convenience.
-
-Thanks so much for your time.
-
-Best,
-{{your_name}}`,
-  },
-];
-
-let templates = [];
-let editTemplateId = null;
-
-function persistTemplates() {
-  localStorage.setItem('jobquest_templates', JSON.stringify(templates));
-}
-
-function renderTemplates() {
-  const grid = document.getElementById('templatesGrid');
-  if (!grid) return;
-
-  if (!templates.length) {
-    grid.innerHTML = `<div class="empty-state">No templates yet — create one to get started.</div>`;
-    return;
-  }
-
-  grid.innerHTML = templates.map(t => `
-    <div class="template-card">
-      <div class="template-name">${t.name}</div>
-      ${t.subject ? `<div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Subject: ${t.subject}</div>` : ''}
-      <div class="template-preview">${t.body}</div>
-      <div class="template-actions">
-        <button class="btn-template" onclick="openTemplateEditor('${t.id}')">Edit</button>
-        <button class="btn-template danger" onclick="deleteTemplate('${t.id}')">Delete</button>
-      </div>
-    </div>
-  `).join('');
-}
-
-function openTemplateEditor(id) {
-  editTemplateId = id || null;
-  const tpl = id ? templates.find(t => t.id === id) : null;
-  document.getElementById('templateEditorTitle').textContent = tpl ? 'Edit template' : 'New template';
-  document.getElementById('te-name').value    = tpl?.name    || '';
-  document.getElementById('te-subject').value = tpl?.subject || '';
-  document.getElementById('te-body').value    = tpl?.body    || '';
-  document.getElementById('templateEditorBackdrop').classList.add('open');
-}
-
-function closeTemplateEditor() {
-  document.getElementById('templateEditorBackdrop').classList.remove('open');
-}
-
-function saveTemplate() {
-  const name    = document.getElementById('te-name').value.trim();
-  const subject = document.getElementById('te-subject').value.trim();
-  const body    = document.getElementById('te-body').value.trim();
-  if (!name) { alert('Please enter a template name.'); return; }
-
-  if (editTemplateId) {
-    const idx = templates.findIndex(t => t.id === editTemplateId);
-    templates[idx] = { ...templates[idx], name, subject, body };
-  } else {
-    templates.push({ id: 'tpl-' + uid(), name, subject, body });
-  }
-
-  persistTemplates();
-  renderTemplates();
-  closeTemplateEditor();
-}
-
-function deleteTemplate(id) {
-  templates = templates.filter(t => t.id !== id);
-  persistTemplates();
-  renderTemplates();
-}
-
-function openTemplatePicker() {
-  const list = document.getElementById('templatePickerList');
-  if (!templates.length) {
-    list.innerHTML = `<div class="empty-state">No templates yet — create some in the Templates tab first.</div>`;
-  } else {
-    list.innerHTML = templates.map(t => `
-      <div class="template-picker-item" onclick="applyTemplateToCover('${t.id}')">
-        <div class="template-picker-item-name">${t.name}</div>
-        <div class="template-picker-item-preview">${t.body.replace(/\n/g, ' ')}</div>
-      </div>
-    `).join('');
-  }
-  document.getElementById('templatePickerBackdrop').classList.add('open');
-}
-
-function closeTemplatePicker() {
-  document.getElementById('templatePickerBackdrop').classList.remove('open');
-}
-
-
-
-let cardDensity = 'comfortable';
-
-function setDensity(mode) {
-  cardDensity = mode;
-  localStorage.setItem('jobquest_density', mode);
-  applyDensity();
-  document.getElementById('settingsDropdown').classList.remove('open');
-}
-
-function applyDensity() {
-  const board = document.getElementById('kanbanBoard');
-  if (!board) return;
-  board.className = board.className
-    .replace(/density-\w+/g, '')
-    .trim();
-  board.classList.add(`density-${cardDensity}`);
-
-  // update checkmarks in dropdown
-  ['comfortable', 'cozy', 'compact'].forEach(m => {
-    const btn = document.getElementById(`density-${m}`);
-    if (!btn) return;
-    const label = { comfortable: 'Comfortable', cozy: 'Cozy', compact: 'Compact' }[m];
-    btn.innerHTML = btn.innerHTML.replace(/✓\s*/, '');
-    if (m === cardDensity) btn.innerHTML = btn.innerHTML.replace(label, `✓ ${label}`);
-  });
-}
-
-const TOUR_STEPS = [
-  {
-    target:  () => document.getElementById('kanbanBoard'),
-    title:   'Your job board 📋',
-    desc:    'Applications live here as cards in columns. Drag them between columns as things progress — Applied, Phone Screen, Interviewing, and so on.',
-    place:   'bottom',
-  },
-  {
-    target:  () => document.querySelector('.btn-add'),
-    title:   'Add a job ➕',
-    desc:    'Click here to log a new application. Fill in the basics and you can always come back to add more detail later.',
-    place:   'bottom',
-  },
-  {
-    target:  () => document.querySelector('.theme-swatches'),
-    title:   'Pick a theme 🎨',
-    desc:    "Six dark themes to choose from. It's a tough market — you deserve something nice to look at.",
-    place:   'bottom',
-  },
-  {
-    target:  () => document.getElementById('searchBar'),
-    title:   'Search & filter 🔍',
-    desc:    'Type to search by company or role. Click into the bar to expand filters for status, work type, and salary range.',
-    place:   'bottom',
-  },
-  {
-    target:  () => document.querySelectorAll('.tab')[4],
-    title:   'Timeline 📅',
-    desc:    'A chronological feed and calendar of everything happening across your applications — status changes, interviews, deadlines.',
-    place:   'bottom',
-  },
-  {
-    target:  () => document.querySelectorAll('.tab')[3],
-    title:   'Goals 🎯',
-    desc:    'Set weekly and monthly application targets, interview goals, and track your total offers. Progress updates automatically.',
-    place:   'bottom',
-  },
-  {
-    target:  () => document.querySelectorAll('.tab')[5],
-    title:   'Email templates ✉️',
-    desc:    'Build a library of reusable templates for follow-ups, thank yous, and recruiter outreach. They auto-fill with job details when you use them.',
-    place:   'bottom',
-  },
-  {
-    target:  () => document.querySelector('.settings-btn'),
-    title:   'Settings ⚙️',
-    desc:    'Export your applications to CSV or change your name from here. You can also re-run this tour any time.',
-    place:   'left',
-  },
-];
-
-let tourStep = 0;
-
-function startTour() {
-  document.getElementById('settingsDropdown')?.classList.remove('open');
-  tourStep = 0;
-  document.getElementById('tourOverlay').style.display = 'block';
-  showTourStep();
-}
-
-function endTour() {
-  document.getElementById('tourOverlay').style.display = 'none';
-  localStorage.setItem('jobquest_tour_done', '1');
-}
-
-function tourNext() {
-  tourStep++;
-  if (tourStep >= TOUR_STEPS.length) { endTour(); return; }
-  showTourStep();
-}
-
-function showTourStep() {
-  const step   = TOUR_STEPS[tourStep];
-  const target = step.target();
-
-  // if target not found or has no dimensions, skip to next
-  if (!target) { tourNext(); return; }
-
-  const rect = target.getBoundingClientRect();
-  if (rect.width === 0 && rect.height === 0) { tourNext(); return; }
-
-  const pad = 8;
-  const W   = window.innerWidth;
-  const H   = window.innerHeight;
-
-  // spotlight
-  const hole = document.getElementById('tourHole');
-  hole.setAttribute('x',      Math.max(0, rect.left   - pad));
-  hole.setAttribute('y',      Math.max(0, rect.top    - pad));
-  hole.setAttribute('width',  rect.width  + pad * 2);
-  hole.setAttribute('height', rect.height + pad * 2);
-
-  const svg = document.getElementById('tourSpotlight');
-  svg.setAttribute('width',  W);
-  svg.setAttribute('height', H);
-
-  // tooltip content
-  document.getElementById('tourStepLabel').textContent = `Step ${tourStep + 1} of ${TOUR_STEPS.length}`;
-  document.getElementById('tourTitle').textContent      = step.title;
-  document.getElementById('tourDesc').textContent       = step.desc;
-  document.getElementById('tourNextBtn').textContent    = tourStep === TOUR_STEPS.length - 1 ? "Let's go! 🎉" : 'Next →';
-
-  document.getElementById('tourDots').innerHTML = TOUR_STEPS.map((_, i) =>
-    `<div class="tour-dot ${i === tourStep ? 'active' : ''}"></div>`
-  ).join('');
-
-  // position tooltip — use fixed fallback dimensions so it always shows
-  const tt  = document.getElementById('tourTooltip');
-  const ttW = 290;
-  const ttH = 160;
-  let top, left;
-
-  if (step.place === 'bottom') {
-    top  = rect.bottom + pad + 10;
-    left = rect.left + rect.width / 2 - ttW / 2;
-  } else if (step.place === 'left') {
-    top  = rect.top + rect.height / 2 - ttH / 2;
-    left = rect.left - ttW - pad - 10;
-    // if it would go off-screen to the left, put it on the right instead
-    if (left < 10) left = rect.right + pad + 10;
-  } else {
-    top  = rect.top - ttH - pad - 10;
-    left = rect.left + rect.width / 2 - ttW / 2;
-  }
-
-  // clamp to viewport
-  left = Math.max(10, Math.min(left, W - ttW - 10));
-  top  = Math.max(10, Math.min(top,  H - ttH - 10));
-
-  tt.style.top     = `${top}px`;
-  tt.style.left    = `${left}px`;
-  tt.style.opacity = '1';
-  tt.style.width   = `${ttW}px`;
-}
-
-let dupeSourceId  = null;
-let contextJobId  = null;
-
-function openDupeModal() {
-  dupeSourceId = editId;
-  document.getElementById('dupeModalBackdrop').classList.add('open');
-}
-
-function closeDupeModal() {
-  document.getElementById('dupeModalBackdrop').classList.remove('open');
-}
-
-function confirmDuplicate() {
-  const src = jobs.find(j => j.id === dupeSourceId);
-  if (!src) return;
-
-  const get = id => document.getElementById(id)?.checked;
-
-  const newJob = {
-    id:       uid(),
-    company:  src.company,
-    location: src.location,
-    worktype: src.worktype,
-    salary:   src.salary,
-    // always blank
-    role:        '',
-    link:        '',
-    date:        new Date().toISOString().slice(0, 10),
-    activity:    [],
-    // conditional
-    status:        get('dupe-status')   ? src.status        : 'Applied',
-    cover:         get('dupe-cover')    ? src.cover         : '',
-    coverFile:     get('dupe-cover')    ? src.coverFile     : null,
-    resume:        get('dupe-resume')   ? src.resume        : null,
-    notes:         get('dupe-notes')    ? src.notes         : '',
-    contacts:      get('dupe-contacts') ? JSON.parse(JSON.stringify(src.contacts || [])) : [],
-    qa:            get('dupe-qa')       ? JSON.parse(JSON.stringify(src.qa       || [])) : [],
-    emails:        get('dupe-emails')   ? JSON.parse(JSON.stringify(src.emails   || [])) : [],
-    interviewDate: get('dupe-dates')    ? src.interviewDate : '',
-    applyBy:       get('dupe-dates')    ? src.applyBy       : '',
-    hearBackBy:    get('dupe-dates')    ? src.hearBackBy    : '',
-  };
-
-  jobs.unshift(newJob);
-  persist();
-  render();
-  closeDupeModal();
-  closeModal();
-}
-
-function showContextMenu(event, jobId) {
-  event.preventDefault();
-  contextJobId = jobId;
-  const menu = document.getElementById('contextMenu');
-  menu.style.display = 'block';
-  const x = Math.min(event.clientX, window.innerWidth  - 160);
-  const y = Math.min(event.clientY, window.innerHeight - 80);
-  menu.style.left = x + 'px';
-  menu.style.top  = y + 'px';
-}
-
-function hideContextMenu() {
-  document.getElementById('contextMenu').style.display = 'none';
-}
-
-function contextDuplicate() {
-  hideContextMenu();
-  dupeSourceId = contextJobId;
-  document.getElementById('dupeModalBackdrop').classList.add('open');
-}
-
-function contextEdit() {
-  hideContextMenu();
-  openEdit(contextJobId);
-}
-
-function contextPrep() {
-  hideContextMenu();
-  openPrepMode(contextJobId);
-}
-
-function openPrepMode(jobId) {
-  const job = jobs.find(j => j.id === jobId);
-  if (!job) return;
-  closeModal();
-
-  const cfg = STATUS_CFG[job.status];
-
-  const contactsHtml = (job.contacts || []).filter(c => c.name).map(c => `
-    <div class="prep-contact">
-      <div class="prep-contact-name">${c.name}</div>
-      ${c.title ? `<div class="prep-contact-title">${c.title}</div>` : ''}
-      <div class="prep-contact-links">
-        ${c.email    ? `<a href="mailto:${c.email}"   class="contact-link">✉️ Email</a>`   : ''}
-        ${c.linkedin ? `<a href="${c.linkedin}" target="_blank" class="contact-link">🔗 LinkedIn</a>` : ''}
-      </div>
-    </div>`).join('');
-
-  document.getElementById('prepLeft').innerHTML = `
-    <div class="prep-company">${job.company}</div>
-    <div class="prep-role">${job.role || 'Role not specified'}</div>
-    <div class="prep-meta">
-      <span class="status-pill" style="background:${cfg.bg};color:${cfg.text};width:fit-content">${cfg.emoji} ${job.status}</span>
-      ${job.worktype  ? `<span style="font-size:12px;font-weight:700;color:var(--text2)">${job.worktype}</span>` : ''}
-      ${job.location  ? `<span style="font-size:12px;font-weight:600;color:var(--text3)">${job.location}</span>` : ''}
-      ${job.salary    ? `<span style="font-size:12px;font-weight:700;color:var(--text2)">${job.salary}</span>` : ''}
-    </div>
-    ${job.interviewDate ? `<div class="prep-interview-date">📅 Interview: ${formatDate(job.interviewDate)}</div>` : ''}
-    ${contactsHtml ? `<div style="font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px">Contacts</div>${contactsHtml}` : ''}
-  `;
-
-  const tabs = [
-    { id: 'prep-notes',    label: 'Notes'        },
-    { id: 'prep-qa',       label: 'Q&A'          },
-    { id: 'prep-cover',    label: 'Cover letter' },
-    { id: 'prep-activity', label: 'Activity'     },
-  ];
-
-  const notesHtml   = job.notes
-    ? `<div class="prep-notes">${job.notes}</div>`
-    : `<div class="prep-empty">No notes yet — add some in the job card.</div>`;
-
-  const qaHtml = (job.qa || []).filter(q => q.q || q.a).length
-    ? (job.qa).filter(q => q.q || q.a).map(q => `
-        <div class="prep-qa-item">
-          <div class="prep-qa-q">${q.q}</div>
-          <div class="prep-qa-a">${q.a || '—'}</div>
-        </div>`).join('')
-    : `<div class="prep-empty">No Q&A saved for this job yet.</div>`;
-
-  const coverHtml = job.cover
-    ? `<div class="prep-cover">${job.cover}</div>`
-    : `<div class="prep-empty">No cover letter text saved.</div>`;
-
-  const activityItems = [...(job.activity || [])].reverse();
-  const activityHtml  = activityItems.length
-    ? activityItems.map(e => {
-        let label = '';
-        if (e.type === 'status')        label = `Status changed from ${e.from} to ${e.to}`;
-        if (e.type === 'resume')        label = `Resume attached — ${e.detail}`;
-        if (e.type === 'interviewDate') label = `Interview date set to ${e.detail}`;
-        if (e.type === 'applyBy')       label = `Apply by set to ${e.detail}`;
-        if (e.type === 'hearBackBy')    label = `Hear back by set to ${e.detail}`;
-        const color = e.type === 'status' ? (STATUS_CFG[e.to]?.color || 'var(--accent)') : 'var(--accent)';
-        return `<div class="feed-item" style="cursor:default">
-          <div class="feed-dot-wrap"><div class="feed-dot" style="background:${color}"></div></div>
-          <div class="feed-content"><div class="feed-title" style="font-size:13px">${label}</div></div>
-          <div class="feed-date">${formatDate(e.date)}</div>
-        </div>`;
-      }).join('')
-    : `<div class="prep-empty">No activity logged yet.</div>`;
-
-  document.getElementById('prepRight').innerHTML = `
-    <div class="prep-section-tabs">
-      ${tabs.map((t, i) => `<button class="prep-tab ${i === 0 ? 'active' : ''}" onclick="switchPrepTab('${t.id}')">${t.label}</button>`).join('')}
-    </div>
-    <div class="prep-content active" id="prep-notes">${notesHtml}</div>
-    <div class="prep-content"        id="prep-qa">${qaHtml}</div>
-    <div class="prep-content"        id="prep-cover">${coverHtml}</div>
-    <div class="prep-content"        id="prep-activity"><div class="feed-list">${activityHtml}</div></div>
-  `;
-
-  document.getElementById('prepMode').classList.add('open');
-}
-
-function switchPrepTab(id) {
-  document.querySelectorAll('.prep-tab').forEach((btn, i) => {
-    btn.classList.toggle('active', btn.getAttribute('onclick') === `switchPrepTab('${id}')`);
-  });
-  document.querySelectorAll('.prep-content').forEach(el => el.classList.remove('active'));
-  document.getElementById(id)?.classList.add('active');
-}
-
-function closePrepMode() {
-  document.getElementById('prepMode').classList.remove('open');
-}
-function contextDuplicate() {
-  hideContextMenu();
-  dupeSourceId = contextJobId;
-  document.getElementById('dupeModalBackdrop').classList.add('open');
-}
-
-function contextEdit() {
-  hideContextMenu();
-  openEdit(contextJobId);
-}
-
-document.addEventListener('click', () => hideContextMenu());
-document.addEventListener('keydown', e => { if (e.key === 'Escape') hideContextMenu(); });
-
-function toggleShortcutsCard() {
-  document.getElementById('shortcutsCard').classList.toggle('open');
-}
-
-function isTyping() {
-  const el = document.activeElement;
-  return el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT');
-}
-
-document.addEventListener('keydown', e => {
-  // Escape always works
-  if (e.key === 'Escape') {
-    document.getElementById('prepMode').classList.remove('open');
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.getElementById('templateEditorBackdrop').classList.remove('open');
-    document.getElementById('templatePickerBackdrop').classList.remove('open');
-    document.getElementById('settingsDropdown').classList.remove('open');
-    document.getElementById('shortcutsCard').classList.remove('open');
-    document.getElementById('filterBar').classList.remove('expanded');
-    return;
-  }
-
-  // all other shortcuts only fire when not typing
-  if (isTyping()) return;
-
-  const tabMap = { '1': 'kanban', '2': 'table', '3': 'stats', '4': 'goals', '5': 'timeline', '6': 'templates' };
-
-  if (e.key === 'n' || e.key === 'N') {
-    e.preventDefault();
-    openAdd();
-  } else if (e.key === '/') {
-    e.preventDefault();
-    const search = document.getElementById('searchInput');
-    search?.focus();
-    expandFilters();
-  } else if (e.key === '?') {
-    e.preventDefault();
-    toggleShortcutsCard();
-  } else if (tabMap[e.key]) {
-    e.preventDefault();
-    switchTab(tabMap[e.key]);
-  }
-});
-
-function pdfStyles(theme) {
-  const t = THEMES[theme] || THEMES['purple'];
-  return `
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Nunito', system-ui, sans-serif; background: ${t.bg}; color: ${t.text}; padding: 32px; font-size: 12px; }
-    .pdf-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid ${t.border2}; }
-    .pdf-logo { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, ${t.gradA}, ${t.gradB}); display: flex; align-items: center; justify-content: center; }
-    .pdf-logo svg { width: 16px; height: 16px; fill: #fff; }
-    .pdf-title { font-size: 18px; font-weight: 800; color: ${t.text}; }
-    .pdf-title span { color: ${t.accent}; }
-    .pdf-subtitle { font-size: 11px; color: ${t.text3}; margin-top: 2px; }
-    .job-card { background: ${t.surface}; border: 1px solid ${t.border2}; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
-    .job-company { font-size: 14px; font-weight: 800; color: ${t.text}; }
-    .job-role { font-size: 12px; color: ${t.text2}; font-weight: 600; margin-bottom: 8px; }
-    .job-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
-    .badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; background: ${t.surface2}; color: ${t.text2}; }
-    .status-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
-    .field { display: flex; flex-direction: column; gap: 2px; }
-    .field-label { font-size: 9px; font-weight: 800; color: ${t.text3}; text-transform: uppercase; letter-spacing: .6px; }
-    .field-val { font-size: 11px; font-weight: 600; color: ${t.text2}; }
-    .section { margin-top: 12px; padding-top: 10px; border-top: 1px solid ${t.border}; }
-    .section-label { font-size: 10px; font-weight: 800; color: ${t.text3}; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 6px; }
-    .section-body { font-size: 11px; font-weight: 400; color: ${t.text2}; line-height: 1.6; white-space: pre-wrap; }
-    .contact-card { background: ${t.surface2}; border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; }
-    .activity-row { display: flex; gap: 10px; padding: 5px 0; border-bottom: 1px solid ${t.border}; align-items: flex-start; }
-    .activity-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
-    .summary-table { width: 100%; border-collapse: collapse; }
-    .summary-table th { font-size: 9px; font-weight: 800; color: ${t.text3}; text-transform: uppercase; letter-spacing: .6px; padding: 8px 10px; text-align: left; border-bottom: 1px solid ${t.border2}; }
-    .summary-table td { padding: 8px 10px; border-bottom: 1px solid ${t.border}; font-size: 11px; font-weight: 600; color: ${t.text2}; vertical-align: middle; }
-    .summary-table tr:last-child td { border-bottom: none; }
-  `;
-}
-
-function pdfHeader(subtitle) {
-  return `
-    <div class="pdf-header">
-      <div class="pdf-logo">
-        <svg viewBox="0 0 16 16"><path d="M8 1l1.76 4.24L14 7l-4.24 1.76L8 13l-1.76-4.24L2 7l4.24-1.76L8 1z"/></svg>
-      </div>
-      <div>
-        <div class="pdf-title">job<span>quest</span></div>
-        <div class="pdf-subtitle">${subtitle}</div>
-      </div>
-    </div>`;
-}
-
-async function triggerPDF(html, filename) {
-  if (window.pdfExport) {
-    const result = await window.pdfExport.save(html, filename);
-    if (!result.success) alert('PDF export cancelled.');
-  } else {
-    // fallback for browser: open in new tab
-    const w = window.open('', '_blank');
-    w.document.write(html);
-    w.document.close();
-    w.print();
-  }
-}
-
-async function exportAllPDF() {
-  document.getElementById('settingsDropdown').classList.remove('open');
-  const theme = currentThemeName + (isDark ? '' : '-light');
-  const t     = THEMES[theme] || THEMES[currentThemeName];
-  const date  = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  const list  = filteredJobs();
-
-  const rows = list.map(job => {
-    const cfg = STATUS_CFG[job.status];
-    return `<tr>
-      <td><strong style="color:${t.text}">${job.company}</strong></td>
-      <td>${job.role || '—'}</td>
-      <td><span class="status-badge" style="background:${cfg.bg};color:${cfg.text}">${cfg.emoji} ${job.status}</span></td>
-      <td>${job.worktype}</td>
-      ${job.industry ? `<td>${job.industry}</td>` : '<td>—</td>'}
-      <td>${job.salary || '—'}</td>
-      <td>${job.date ? new Date(job.date + 'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '—'}</td>
-    </tr>`;
-  }).join('');
-
-  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
-    <style>${pdfStyles(isDark ? currentThemeName : currentThemeName + '-light')}</style></head>
-    <body>
-      ${pdfHeader(`All applications · Exported ${date} · ${list.length} jobs`)}
-      <table class="summary-table">
-        <thead><tr><th>Company</th><th>Role</th><th>Status</th><th>Work type</th><th>Industry</th><th>Salary</th><th>Applied</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </body></html>`;
-
-  await triggerPDF(html, `jobquest-all-${new Date().toISOString().slice(0,10)}.pdf`);
-}
-
-async function exportJobPDF() {
-  const job = editId ? jobs.find(j => j.id === editId) : null;
-  if (!job) return;
-
-  const theme = currentThemeName + (isDark ? '' : '-light');
-  const t     = THEMES[theme] || THEMES[currentThemeName];
-  const cfg   = STATUS_CFG[job.status];
-  const date  = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-
-  const contactsHtml = (job.contacts || []).map(c => `
-    <div class="contact-card">
-      <strong style="color:${t.text}">${c.name}</strong>${c.title ? ` · ${c.title}` : ''}
-      ${c.email    ? `<div>${c.email}</div>`    : ''}
-      ${c.phone    ? `<div>${c.phone}</div>`    : ''}
-      ${c.linkedin ? `<div>${c.linkedin}</div>` : ''}
-      ${c.notes    ? `<div style="margin-top:4px;color:${t.text3}">${c.notes}</div>` : ''}
-    </div>`).join('');
-
-  const qaHtml = (job.qa || []).filter(q => q.q || q.a).map(q => `
-    <div style="margin-bottom:10px">
-      <div style="font-weight:700;color:${t.text};margin-bottom:3px">${q.q}</div>
-      <div class="section-body">${q.a}</div>
-    </div>`).join('');
-
-  const activityHtml = [...(job.activity || [])].reverse().map(e => {
-    let label = '';
-    if (e.type === 'status')        label = `Status changed from ${e.from} to ${e.to}`;
-    if (e.type === 'resume')        label = `Resume attached — ${e.detail}`;
-    if (e.type === 'interviewDate') label = `Interview date set to ${e.detail}`;
-    if (e.type === 'applyBy')       label = `Apply by set to ${e.detail}`;
-    if (e.type === 'hearBackBy')    label = `Hear back by set to ${e.detail}`;
-    const color = e.type === 'status' ? (STATUS_CFG[e.to]?.color || t.accent) : t.accent;
-    return `<div class="activity-row">
-      <div class="activity-dot" style="background:${color}"></div>
-      <div style="flex:1;font-size:11px;color:${t.text2}">${label}</div>
-      <div style="font-size:10px;color:${t.text3}">${e.date}</div>
-    </div>`;
-  }).join('');
-
-  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
-    <style>${pdfStyles(isDark ? currentThemeName : currentThemeName + '-light')}</style></head>
-    <body>
-      ${pdfHeader(`Exported ${date}`)}
-      <div class="job-card">
-        <div class="job-company">${job.company}</div>
-        <div class="job-role">${job.role || 'Role not specified'}</div>
-        <div class="job-meta">
-          <span class="status-badge" style="background:${cfg.bg};color:${cfg.text}">${cfg.emoji} ${job.status}</span>
-          <span class="badge">${job.worktype}</span>
-          ${job.industry  ? `<span class="badge">${job.industry}</span>`  : ''}
-          ${job.location  ? `<span class="badge">${job.location}</span>`  : ''}
-          ${job.salary    ? `<span class="badge">${job.salary}</span>`    : ''}
-        </div>
-        <div class="field-row">
-          ${job.date          ? `<div class="field"><div class="field-label">Applied</div><div class="field-val">${job.date}</div></div>` : ''}
-          ${job.interviewDate ? `<div class="field"><div class="field-label">Interview</div><div class="field-val">${job.interviewDate}</div></div>` : ''}
-          ${job.applyBy       ? `<div class="field"><div class="field-label">Apply by</div><div class="field-val">${job.applyBy}</div></div>` : ''}
-          ${job.hearBackBy    ? `<div class="field"><div class="field-label">Hear back by</div><div class="field-val">${job.hearBackBy}</div></div>` : ''}
-          ${job.link          ? `<div class="field" style="grid-column:span 2"><div class="field-label">Link</div><div class="field-val">${job.link}</div></div>` : ''}
-        </div>
-      </div>
-      ${job.notes    ? `<div class="section"><div class="section-label">Notes</div><div class="section-body">${job.notes}</div></div>` : ''}
-      ${job.cover    ? `<div class="section"><div class="section-label">Cover letter</div><div class="section-body">${job.cover}</div></div>` : ''}
-      ${contactsHtml ? `<div class="section"><div class="section-label">Contacts</div>${contactsHtml}</div>` : ''}
-      ${qaHtml       ? `<div class="section"><div class="section-label">Bonus Q&A</div>${qaHtml}</div>` : ''}
-      ${activityHtml ? `<div class="section"><div class="section-label">Activity</div>${activityHtml}</div>` : ''}
-    </body></html>`;
-
-  const filename = `jobquest-${job.company.toLowerCase().replace(/[^a-z0-9]/g,'-')}-${new Date().toISOString().slice(0,10)}.pdf`;
-  await triggerPDF(html, filename);
-}
-
-const PREP_TEMPLATE = `── Interview Prep ──────────────────
-
-Company research:
-
-Why this role:
-
-Interview format:
-
-Who I'm interviewing with:
-
-Key talking points:
-
-Questions to ask them:
-`;
-
-let prepToastTimer = null;
-
-function showPrepToast() {
-  const toast = document.getElementById('prepToast');
-  toast.style.display = 'flex';
-  clearTimeout(prepToastTimer);
-  prepToastTimer = setTimeout(dismissPrepToast, 8000);
-}
-
-function dismissPrepToast() {
-  document.getElementById('prepToast').style.display = 'none';
-  clearTimeout(prepToastTimer);
-}
-
-function applyPrepTemplate() {
-  dismissPrepToast();
-  const textarea = document.getElementById('f-notes');
-  if (!textarea) return;
-  const existing = textarea.value.trim();
-  textarea.value = existing ? existing + '\n\n' + PREP_TEMPLATE : PREP_TEMPLATE;
-  // open modal on notes tab if not already open
-  if (document.getElementById('modalOverlay').classList.contains('open')) {
-    switchModalTab('notes');
-  } else {
-    // find the most recently saved job and open it
-    if (jobs.length) {
-      openEdit(jobs[0].id);
-      setTimeout(() => switchModalTab('notes'), 50);
-    }
-  }
-}
-
-const PARTICLE_COUNT = 55;
-let particleBg = [];
-let particleRaf = null;
-let particleActive = false;
-
-function initParticles() {
-  const canvas = document.getElementById('particle-canvas');
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  particleBg = Array.from({ length: PARTICLE_COUNT }, () => ({
-    x:     Math.random() * canvas.width,
-    y:     Math.random() * canvas.height,
-    r:     0.5 + Math.random() * 1.5,
-    vx:    (Math.random() - 0.5) * 0.25,
-    vy:    -0.15 - Math.random() * 0.25,
-    alpha: 0.15 + Math.random() * 0.25,
-  }));
-}
-
-let particleColor = '#A78BFA';
-
-function tickParticles() {
-  const canvas = document.getElementById('particle-canvas');
-  const ctx    = canvas.getContext('2d');
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (const p of particleBg) {
-    p.x += p.vx;
-    p.y += p.vy;
-    if (p.y < -2)                p.y = canvas.height + 2;
-    if (p.x < -2)                p.x = canvas.width  + 2;
-    if (p.x > canvas.width  + 2) p.x = -2;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle   = particleColor;
-    ctx.globalAlpha = p.alpha;
-    ctx.fill();
-  }
-  ctx.globalAlpha = 1;
-
-  if (particleActive) particleRaf = requestAnimationFrame(tickParticles);
-}
-
-function startParticles() {
-  if (particleActive) return;
-  particleActive = true;
-  const canvas = document.getElementById('particle-canvas');
-  if (particleBg.length === 0) initParticles();
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-  canvas.style.opacity = '1';
-  tickParticles();
-}
-
-function stopParticles() {
-  particleActive = false;
-  cancelAnimationFrame(particleRaf);
-  document.getElementById('particle-canvas').style.opacity = '0';
-}
-
-window.addEventListener('resize', () => {
-  if (!particleActive) return;
-  const canvas = document.getElementById('particle-canvas');
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-  initParticles();
-});
-
-const MOODS = [
-  { emoji: '😄', label: 'Great' },
-  { emoji: '🙂', label: 'Good' },
-  { emoji: '😐', label: 'Okay' },
-  { emoji: '😔', label: 'Rough' },
-  { emoji: '😤', label: 'Frustrated' },
-];
-
-let moodLog = {};
-
-function persistMoods() {
-  localStorage.setItem('jobquest_moods', JSON.stringify(moodLog));
-}
-
-function todayKey() {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function logMood(emoji) {
-  moodLog[todayKey()] = emoji;
-  persistMoods();
-  renderMoodWidget();
-}
-
-function renderMoodWidget() {
-  const el = document.getElementById('moodWidget');
-  if (!el) return;
-
-  const today     = todayKey();
-  const todayMood = moodLog[today];
-
-  // last 14 days history
-  const history = [];
-  for (let i = 13; i >= 0; i--) {
-    const d = new Date();
-    d.setDate(d.getDate() - i);
-    const key = d.toISOString().slice(0, 10);
-    if (moodLog[key]) {
-      history.push({ key, emoji: moodLog[key], label: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) });
-    }
-  }
-
-  const historyHtml = history.length > 1 ? `
-    <div style="font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-top:14px;margin-bottom:6px">Last 14 days</div>
-    <div class="mood-history">
-      ${history.map(h => `
-        <div class="mood-day" title="${h.label}">
-          <div class="mood-day-emoji">${h.emoji}</div>
-          <div class="mood-day-date">${h.label.split(' ')[1]}</div>
-        </div>
-      `).join('')}
-    </div>` : '';
-
-  el.innerHTML = `
-    <div class="chart-title" style="margin-bottom:6px">How are you feeling today?</div>
-    <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:4px">
-      ${todayMood ? `You logged ${todayMood} today. You can change it any time.` : 'Tap to log your mood — just between you and the app.'}
-    </div>
-    <div class="mood-emojis">
-      ${MOODS.map(m => `
-        <button class="mood-emoji ${todayMood === m.emoji ? 'selected' : ''}"
-          onclick="logMood('${m.emoji}')" title="${m.label}">${m.emoji}</button>
-      `).join('')}
-    </div>
-    ${historyHtml}
-  `;
-}
-
-let ghostClickCount  = 0;
-let ghostClickTimer  = null;
-const GHOST_THRESHOLD = 5;
-
-function ghostClick(event) {
-  event.stopPropagation();
-  ghostClickCount++;
-  clearTimeout(ghostClickTimer);
-  ghostClickTimer = setTimeout(() => { ghostClickCount = 0; }, 1200);
-
-  if (ghostClickCount >= GHOST_THRESHOLD) {
-    ghostClickCount = 0;
-    triggerGhostEasterEgg(event);
-  }
-}
-
-function triggerGhostEasterEgg(event) {
-  // wobble the whole ghosted column
-  const col = event.target.closest('.kanban-col');
-  if (col) {
-    col.style.animation = 'none';
-    requestAnimationFrame(() => {
-      col.style.animation = 'cardWobble .5s ease both';
-      setTimeout(() => col.style.animation = '', 600);
-    });
-  }
-
-  // float ghosts up from the click position
-  const count = 3 + Math.floor(Math.random() * 3);
-  for (let i = 0; i < count; i++) {
-    setTimeout(() => {
-      const ghost = document.createElement('div');
-      ghost.className = 'ghost-floater';
-      ghost.textContent = '👻';
-      ghost.style.left = `${event.clientX + (Math.random() - 0.5) * 60}px`;
-      ghost.style.top  = `${event.clientY}px`;
-      ghost.style.animationDelay = `${i * 120}ms`;
-      document.body.appendChild(ghost);
-      setTimeout(() => ghost.remove(), 1600);
-    }, i * 80);
-  }
-
-  // cheeky message
-  const messages = [
-    "They ghosted you... but you summoned actual ghosts. Power move. 👻",
-    "The ghost has been exorcised. You're free. 🕊️",
-    "Haunted by silence? Now they're haunted by YOU. 👻",
-    "Oooooooh spooky. Their loss, seriously. 👻",
-  ];
-  const msg = messages[Math.floor(Math.random() * messages.length)];
-
-  const toast = document.createElement('div');
-  toast.className = 'ghost-toast-msg';
-  toast.textContent = msg;
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 3000);
-}
-
-function lsGet(key, fallback = null) {
-  try {
-    const v = localStorage.getItem(key);
-    return v !== null ? JSON.parse(v) : fallback;
-  } catch { return fallback; }
-}
-
-function load() {
-  jobs          = lsGet('jobquest_jobs')      ?? seedData();
-  templates     = lsGet('jobquest_templates') ?? JSON.parse(JSON.stringify(DEFAULT_TEMPLATES));
-  goalTargets   = { ...GOAL_DEFAULTS, ...lsGet('jobquest_goals', {}) };
-  customIndustries = lsGet('jobquest_industries', []);
-  moodLog       = lsGet('jobquest_moods',      {});
-  cardDensity   = lsGet('jobquest_density',    'comfortable');
-  userName      = lsGet('jobquest_user_name',  '');
-  isDark        = lsGet('jobquest_mode',       'dark') !== 'light';
-
-  if (lsGet('jobquest_hide_inactive')) {
-    hideInactive = true;
-    activeStatuses.delete('Rejected');
-    activeStatuses.delete('Ghosted');
-  }
-
-  if (!userName) document.getElementById('welcomeBackdrop').classList.add('open');
-
-  const theme = lsGet('jobquest_theme', 'purple');
-  applyTheme(THEMES[theme] ? theme : 'purple');
-
-  buildFilterPills();
-  updateHideInactiveBtn();
-  document.getElementById('searchBar').classList.add('visible');
-  document.getElementById('filterBar').classList.add('visible');
-  render();
-  applyDensity();
-  startParticles();
-}
-
-function makeJob(fields) {
-  return {
-    id: uid(), link: '', cover: '', coverFile: null,
-    resume: null, qa: [], emails: [], contacts: [],
-    activity: [], notes: '', industry: '',
-    interviewDate: '', applyBy: '', hearBackBy: '',
-    ...fields,
-  };
-}
-
-function seedData() {
-  const daysAgo = n => {
-    const d = new Date();
-    d.setDate(d.getDate() - n);
-    return d.toISOString().slice(0, 10);
-  };
-  return [
-    makeJob({ company: 'Stripe',  role: 'Product Engineer',    location: 'San Francisco, CA', worktype: 'Hybrid',  status: 'Interviewing', salary: '$160k–$200k', date: daysAgo(12), notes: '3rd round — system design next week', industry: 'Technology' }),
-    makeJob({ company: 'Linear',  role: 'Frontend Engineer',   location: 'Remote',            worktype: 'Remote',  status: 'Phone Screen', salary: '$140k–$170k', date: daysAgo(8),  notes: 'Chat with hiring manager scheduled',  industry: 'Technology' }),
-    makeJob({ company: 'Vercel',  role: 'DX Engineer',         location: 'New York, NY',      worktype: 'Hybrid',  status: 'Applied',      salary: '$130k–$160k', date: daysAgo(3),  notes: '',                                    industry: 'Technology' }),
-    makeJob({ company: 'Figma',   role: 'Software Engineer',   location: 'San Francisco, CA', worktype: 'On-site', status: 'Offer',        salary: '$180k–$210k', date: daysAgo(20), notes: 'Deadline to respond: Friday',          industry: 'Design' }),
-    makeJob({ company: 'Notion',  role: 'Full Stack Engineer', location: 'Remote',            worktype: 'Remote',  status: 'Rejected',     salary: '$120k–$150k', date: daysAgo(30), notes: 'No feedback given',                   industry: 'Technology' }),
-    makeJob({ company: 'Loom',    role: 'React Developer',     location: 'Austin, TX',        worktype: 'Hybrid',  status: 'Ghosted',      salary: '$110k–$140k', date: daysAgo(45), notes: 'Applied via LinkedIn',                industry: 'Technology' }),
-  ];
-}
-
-function uid() {
-  return Math.random().toString(36).slice(2, 10);
-}
-
-function formatDate(iso) {
-  if (!iso) return '';
-  return new Date(iso + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-}
-
-const RESOLVED_STATUSES = ['Rejected', 'Ghosted', 'Offer'];
-const WARN_DAYS = 2;
-
-function deadlineInfo(job) {
-  if (RESOLVED_STATUSES.includes(job.status)) return null;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const candidates = [
-    job.applyBy     ? { date: job.applyBy,     label: 'Apply by' }     : null,
-    job.hearBackBy  ? { date: job.hearBackBy,   label: 'Hear back by' } : null,
-  ].filter(Boolean);
-
-  if (!candidates.length) return null;
-
-  // pick the most urgent (soonest)
-  candidates.sort((a, b) => a.date.localeCompare(b.date));
-  const { date, label } = candidates[0];
-
-  const dl   = new Date(date + 'T00:00:00');
-  const diff = Math.round((dl - today) / (1000 * 60 * 60 * 24));
-
-  let text, state;
-  if (diff < 0) {
-    text  = 'Overdue';
-    state = 'overdue';
-  } else if (diff === 0) {
-    text  = 'Today!';
-    state = 'urgent';
-  } else if (diff === 1) {
-    text  = 'Tomorrow';
-    state = 'urgent';
-  } else if (diff <= WARN_DAYS) {
-    text  = `${diff}d left`;
-    state = 'warn';
-  } else {
-    text  = `${diff}d left`;
-    state = 'ok';
-  }
-
-  return { text, state, label, date, diff };
-}
-
-function deadlineBadgeHtml(info) {
-  if (!info) return '';
-  const colors = {
-    overdue: { bg: 'rgba(251,113,133,0.2)', text: '#FB7185' },
-    urgent:  { bg: 'rgba(251,146,60,0.25)', text: '#FB923C' },
-    warn:    { bg: 'rgba(251,191,36,0.2)',  text: '#FBBF24' },
-    ok:      { bg: 'var(--surface2)',        text: 'var(--text3)' },
-  };
-  const c = colors[info.state];
-  return `<span class="badge" style="background:${c.bg};color:${c.text}">⏰ ${info.text}</span>`;
-}
-
-function deadlineCardBorder(info) {
-  if (!info) return '';
-  if (info.state === 'overdue') return 'border-color:#FB7185;box-shadow:0 0 0 1px rgba(251,113,133,0.3)';
-  if (info.state === 'urgent')  return 'border-color:#FB923C;box-shadow:0 0 0 1px rgba(251,146,60,0.3)';
-  if (info.state === 'warn')    return 'border-color:#FBBF24;box-shadow:0 0 0 1px rgba(251,191,36,0.2)';
-  return '';
-}
-
-function render() {
-  renderStats();
-  renderKanban();
-  applyDensity();
-  renderTable();
-  renderCharts();
-  renderSalaryWidget();
-  renderGoalsWidget();
-  renderStatsMessage();
-  renderMoodWidget();
-  renderTemplates();
-}
-
-function renderStats() {
-  const total  = jobs.length;
-  const active = jobs.filter(j => !['Rejected', 'Ghosted'].includes(j.status)).length;
-  const offers = jobs.filter(j => j.status === 'Offer').length;
-  const rate   = total ? Math.round(jobs.filter(j => j.status !== 'Applied').length / total * 100) : 0;
-
-  document.getElementById('statStrip').innerHTML = `
-    <div class="stat-card"><div class="stat-card-icon">📋</div><div class="stat-label">Total</div><div class="stat-num">${total}</div><div class="stat-sub">applications</div></div>
-    <div class="stat-card"><div class="stat-card-icon">🔥</div><div class="stat-label">Active</div><div class="stat-num">${active}</div><div class="stat-sub">in progress</div></div>
-    <div class="stat-card"><div class="stat-card-icon">🎉</div><div class="stat-label">Offers</div><div class="stat-num">${offers}</div><div class="stat-sub">received</div></div>
-    <div class="stat-card"><div class="stat-card-icon">⚡</div><div class="stat-label">Progress</div><div class="stat-num">${rate}%</div><div class="stat-sub">past applied</div></div>
-  `;
-}
-
-function renderKanban() {
-  document.getElementById('kanbanBoard').innerHTML = STATUSES.map(status => {
-    const cfg   = STATUS_CFG[status];
-    const cards = filteredJobs().filter(j => j.status === status);
-    const colId = status.replace(/ /g, '-');
-
-    const ghostAttr = status === 'Ghosted' ? 'onclick="ghostClick(event)" style="cursor:pointer;user-select:none" title="👀"' : '';
-    return `
-      <div class="kanban-col" data-col="${status}" style="background:${cfg.col}"
-        ondragover="kanbanDragOver(event,'${status}')"
-        ondragleave="kanbanDragLeave(event)"
-        ondrop="kanbanDrop(event,'${status}')">
-        <div class="col-header">
-          <span style="font-size:14px" ${ghostAttr}>${cfg.emoji}</span>
-          <span class="col-title">${status}</span>
-          <span class="col-count">${cards.length}</span>
-        </div>
-        <div class="drop-indicator" id="di-${colId}"></div>
-        ${cards.length ? cards.map((j,i) => renderCard(j,i)).join('') : '<div class="empty-col">Drop cards here</div>'}
-      </div>
-    `;
-  }).join('');
-}
-
-function renderCard(job, idx = 0) {
-  const worktypeBadge = { Remote: 'badge-remote', Hybrid: 'badge-hybrid', 'On-site': 'badge-onsite' };
-  const dl = deadlineInfo(job);
-  return `
-    <div class="job-card" id="card-${job.id}" draggable="true"
-      ondragstart="cardDragStart(event,'${job.id}')"
-      ondragend="cardDragEnd()"
-      onclick="handleCardClick(event,'${job.id}')"
-      ondblclick="flipCard(event,'${job.id}')"
-      oncontextmenu="showContextMenu(event,'${job.id}')"
-      style="${deadlineCardBorder(dl)};animation-delay:${idx * 40}ms">
-      <div class="job-card-inner">
-        <div class="job-card-front" style="padding:11px 12px">
-          <div class="job-card-company">${job.company}</div>
-          <div class="job-card-role">${job.role || '—'}</div>
-          <div class="job-card-meta">
-            <span class="badge ${worktypeBadge[job.worktype]}">${job.worktype}</span>
-            ${job.location ? `<span class="badge badge-muted">${job.location}</span>` : ''}
-            ${job.resume   ? `<span class="badge badge-green">📄 resume</span>` : ''}
-            ${job.qa?.length ? `<span class="badge badge-purple">💬 ${job.qa.length}Q</span>` : ''}
-            ${job.industry  ? `<span class="badge badge-sky">${job.industry}</span>` : ''}
-            ${deadlineBadgeHtml(dl)}
-          </div>
-          ${job.salary ? `<div class="job-card-salary">${job.salary}</div>` : ''}
-          ${job.date   ? `<div class="job-card-date">${formatDate(job.date)}</div>` : ''}
-        </div>
-        <div class="job-card-back">
-          <div class="job-card-back-title">📝 Notes</div>
-          ${job.notes
-            ? `<div class="job-card-back-notes">${escHtml(job.notes)}</div>`
-            : `<div class="job-card-back-empty">No notes yet</div>`}
-          <button class="job-card-back-open" onclick="event.stopPropagation();openEdit('${job.id}')">Open →</button>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function renderTable() {
-  const rows = sortedJobs().map(job => {
-    const cfg  = STATUS_CFG[job.status];
-    const wBadge = { Remote: 'badge-remote', Hybrid: 'badge-hybrid', 'On-site': 'badge-onsite' };
-    return `
-      <tr onclick="openEdit('${job.id}')" style="cursor:pointer">
-        <td><strong>${job.company}</strong></td>
-        <td>${job.role || '—'}</td>
-        <td style="color:var(--text2)">${job.location || '—'}</td>
-        <td><span class="badge ${wBadge[job.worktype]}">${job.worktype}</span></td>
-        <td><span class="status-pill" style="background:${cfg.bg};color:${cfg.text}">${cfg.emoji} ${job.status}</span></td>
-        <td style="color:var(--text2)">${job.salary || '—'}</td>
-        <td>${job.industry ? `<span class="badge badge-sky">${job.industry}</span>` : '—'}</td>
-        <td>${job.resume ? `<span class="badge badge-green">📄 ${job.resume.name.slice(0, 14)}${job.resume.name.length > 14 ? '…' : ''}</span>` : '—'}</td>
-        <td style="color:var(--text3)">${formatDate(job.date)}</td>
-        <td>${deadlineBadgeHtml(deadlineInfo(job)) || '—'}</td>
-      </tr>
-    `;
-  });
-
-  document.getElementById('tableBody').innerHTML = rows.length
-    ? rows.join('')
-    : `<tr><td colspan="10" style="text-align:center;padding:32px;color:var(--text3);font-size:13px;font-weight:700">No applications yet — add one!</td></tr>`;
-
-  updateSortArrows();
-}
-
-function renderStatsMessage() {
-  const el = document.getElementById('statsMessage');
-  if (!el) return;
-
-  const total    = jobs.length;
-  const active   = jobs.filter(j => !['Rejected','Ghosted'].includes(j.status)).length;
-  const offers   = jobs.filter(j => j.status === 'Offer').length;
-  const interviews = jobs.filter(j => j.status === 'Interviewing').length;
-  const applied  = jobs.filter(j => j.status === 'Applied').length;
-
-  const [wStart, wEnd] = weekRange();
-  const weeklyApps = jobs.filter(j => j.status !== 'Rejected' && j.date >= wStart && j.date <= wEnd).length;
-
-  let msg = '';
-
-  if (total === 0) {
-    msg = "✨ Your job quest begins here. Add your first application to get started!";
-  } else if (offers > 0) {
-    msg = `🎉 You have ${offers} offer${offers > 1 ? 's' : ''} on the table. That's the goal — you're doing it!`;
-  } else if (interviews > 1) {
-    msg = `🔥 ${interviews} interviews in progress — you're in demand. Keep that energy up!`;
-  } else if (interviews === 1) {
-    msg = `✨ One interview in the works. You got this — prep those notes!`;
-  } else if (weeklyApps >= 5) {
-    msg = `💪 ${weeklyApps} applications this week. That's serious momentum — the right one is coming.`;
-  } else if (active > 10) {
-    msg = `📬 ${active} active applications in play. Casting a wide net is smart — stay organised!`;
-  } else if (applied > 0 && interviews === 0) {
-    msg = `⏳ ${applied} application${applied > 1 ? 's' : ''} waiting to hear back. The waiting is the hardest part — hang in there.`;
-  } else if (total >= 5) {
-    const msgs = [
-      `🌟 ${total} applications logged. Every one is a step forward.`,
-      `📋 ${total} applications and counting. Consistency is everything.`,
-      `💼 You've put yourself out there ${total} times. That takes courage.`,
-    ];
-    msg = msgs[Math.floor(Date.now() / 86400000) % msgs.length];
-  } else {
-    msg = `👋 Good to see you. Keep going — every application is progress.`;
-  }
-
-  el.textContent = msg;
-  el.style.display = 'block';
-}
-
-function formatSalary(n) {
-  if (n >= 1000) return '$' + Math.round(n / 1000) + 'k';
-  return '$' + Math.round(n);
-}
-
-function renderSalaryWidget() {
-  const el = document.getElementById('salaryWidget');
-  if (!el) return;
-
-  const withSalary = jobs.filter(j => parseSalary(j.salary) > 0);
-
-  if (withSalary.length < 2) {
-    el.innerHTML = `
-      <div class="chart-title">Salary insights</div>
-      <div class="empty-state">Add salary info to a few applications to see insights here.</div>`;
-    return;
-  }
-
-  const salaries   = withSalary.map(j => parseSalary(j.salary)).sort((a, b) => a - b);
-  const lowest     = salaries[0];
-  const highest    = salaries[salaries.length - 1];
-  const average    = salaries.reduce((a, b) => a + b, 0) / salaries.length;
-  const avgPct     = highest > lowest ? ((average - lowest) / (highest - lowest)) * 100 : 50;
-
-  const worktypeColors = { Remote: '#34D399', Hybrid: '#FB923C', 'On-site': '#A78BFA' };
-  const worktypeRows = ['Remote', 'Hybrid', 'On-site'].map(w => {
-    const wJobs = withSalary.filter(j => j.worktype === w);
-    if (!wJobs.length) return '';
-    const avg = wJobs.reduce((s, j) => s + parseSalary(j.salary), 0) / wJobs.length;
-    const pct = highest > 0 ? Math.round(avg / highest * 100) : 0;
-    return `
-      <div class="bar-row">
-        <div class="bar-label">${w}</div>
-        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${worktypeColors[w]}"></div></div>
-        <div class="bar-val" style="color:${worktypeColors[w]}">${formatSalary(avg)}</div>
-      </div>`;
-  }).join('');
-
-  el.innerHTML = `
-    <div class="chart-title">Salary insights <span style="font-size:10px;font-weight:600;color:var(--text3)">(${withSalary.length} of ${jobs.length} apps)</span></div>
-    <div class="salary-stat-pills">
-      <div class="salary-pill"><div class="salary-pill-label">📉 Lowest</div><div class="salary-pill-val">${formatSalary(lowest)}</div></div>
-      <div class="salary-pill"><div class="salary-pill-label">📊 Average</div><div class="salary-pill-val">${formatSalary(average)}</div></div>
-      <div class="salary-pill"><div class="salary-pill-label">📈 Highest</div><div class="salary-pill-val">${formatSalary(highest)}</div></div>
-    </div>
-    <div style="font-size:10px;font-weight:700;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px">Range spread</div>
-    <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text3);font-weight:700;margin-bottom:2px">
-      <span>${formatSalary(lowest)}</span><span>${formatSalary(highest)}</span>
-    </div>
-    <div class="salary-range-track">
-      <div class="salary-range-fill" style="left:0;width:100%"></div>
-      <div class="salary-range-avg" style="left:${avgPct}%"></div>
-    </div>
-    <div style="font-size:10px;font-weight:600;color:var(--text3);margin-bottom:12px">▲ avg ${formatSalary(average)}</div>
-    ${worktypeRows ? `<div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">By work type</div>${worktypeRows}` : ''}
-  `;
-}
-
-function renderCharts() {
-  const total  = jobs.length || 1;
-  const counts = Object.fromEntries(STATUSES.map(s => [s, jobs.filter(j => j.status === s).length]));
-  const wc     = ['Remote', 'Hybrid', 'On-site'].map(w => [w, jobs.filter(j => j.worktype === w).length]);
-
-  const statusBars = STATUSES.map(s => {
-    const cfg = STATUS_CFG[s];
-    const pct = Math.round(counts[s] / total * 100);
-    return `<div class="bar-row"><div class="bar-label">${cfg.emoji} ${s}</div><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${cfg.color}"></div></div><div class="bar-val" style="color:${cfg.color}">${counts[s]}</div></div>`;
-  }).join('');
-
-  const worktypeColors = { Remote: '#34D399', Hybrid: '#FB923C', 'On-site': '#A78BFA' };
-  const worktypeBars = wc.map(([w, n]) => {
-    const pct = Math.round(n / total * 100);
-    return `<div class="bar-row"><div class="bar-label">${w}</div><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${worktypeColors[w]}"></div></div><div class="bar-val" style="color:${worktypeColors[w]}">${n}</div></div>`;
-  }).join('');
-
-  const funnelStages = ['Applied', 'Phone Screen', 'Interviewing', 'Offer'];
-  const funnelRows = funnelStages.map((s, i) => {
-    const cfg  = STATUS_CFG[s];
-    const prev = i === 0 ? total : counts[funnelStages[i - 1]] || 1;
-    const pct  = i === 0 ? 100 : Math.round(counts[s] / prev * 100);
-    return `<div class="funnel-row"><span style="color:var(--text2);font-weight:700">${cfg.emoji} ${s}</span><span style="display:flex;align-items:center;gap:8px"><span style="color:var(--text2);font-weight:700;font-size:11px">${counts[s]}</span><span style="font-weight:800;color:${cfg.color}">${pct}%</span></span></div>`;
-  }).join('');
-
-  document.getElementById('statsGrid').innerHTML = `
-    <div class="chart-card">
-      <div class="chart-title">Applications by status</div>
-      ${statusBars}
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Work type mix</div>
-      ${worktypeBars}
-      <div style="margin-top:18px">
-        <div class="chart-title" style="font-size:12px;margin-bottom:10px">Response funnel</div>
-        ${funnelRows}
-      </div>
-    </div>
-  `;
-}
-
-let sortKey = 'date';
-let sortDir = 'desc';
-
-const WORKTYPE_ORDER = { Remote: 0, Hybrid: 1, 'On-site': 2 };
-
-function parseSalary(str) {
-  if (!str) return -1;
-
-  // split on range separators first, before stripping characters
-  const parts = str.split(/[-–—to]+/i);
-
-  const nums = parts.map(part => {
-    part = part.trim().toLowerCase();
-    // strip currency symbols, spaces, commas
-    part = part.replace(/[$£€,\s]/g, '');
-    if (!part) return 0;
-    // handle k/m suffixes
-    if (part.endsWith('m')) return parseFloat(part) * 1_000_000;
-    if (part.endsWith('k')) return parseFloat(part) * 1_000;
-    return parseFloat(part) || 0;
-  }).filter(n => n > 0);
-
-  return nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : -1;
-}
-
-function sortedJobs() {
-  return [...filteredJobs()].sort((a, b) => {
-    let cmp = 0;
-    if      (sortKey === 'date')     cmp = (a.date || '').localeCompare(b.date || '');
-    else if (sortKey === 'alpha')    cmp = a.company.localeCompare(b.company);
-    else if (sortKey === 'worktype') cmp = (WORKTYPE_ORDER[a.worktype] ?? 3) - (WORKTYPE_ORDER[b.worktype] ?? 3);
-    else if (sortKey === 'salary')   cmp = parseSalary(a.salary) - parseSalary(b.salary);
-    return sortDir === 'asc' ? cmp : -cmp;
-  });
-}
-
-function setSort(key, dir) {
-  sortKey = key;
-  sortDir = dir;
-  document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
-  document.getElementById(`sp-${key}-${dir}`)?.classList.add('active');
-  renderTable();
-}
-
-function thSort(key) {
-  sortDir = sortKey === key && sortDir === 'asc' ? 'desc' : 'asc';
-  sortKey = key;
-  document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
-  document.getElementById(`sp-${sortKey}-${sortDir}`)?.classList.add('active');
-  renderTable();
-}
-
-function updateSortArrows() {
-  const colMap = { date: 'date', alpha: 'company', worktype: 'worktype', salary: 'salary' };
-  Object.entries(colMap).forEach(([key, col]) => {
-    const th  = document.getElementById(`th-${col}`);
-    const arr = document.getElementById(`tharr-${col}`);
-    const active = key === sortKey;
-    th?.classList.toggle('sorted', active);
-    if (arr) arr.textContent = active ? (sortDir === 'asc' ? '↑' : '↓') : '↕';
-  });
-}
-
-let dragId      = null;
-let dragOverCol = null;
-
-function handleCardClick(event, id) {
-  // don't open modal if card is flipped — let user flip back first
-  const card = document.getElementById(`card-${id}`);
-  if (card?.classList.contains('flipped')) {
-    flipCard(event, id);
-    return;
-  }
-  openEdit(id);
-}
-
-function flipCard(event, id) {
-  event.stopPropagation();
-  const card = document.getElementById(`card-${id}`);
-  if (card) {
-    card.classList.toggle('flipped');
-    // set a minimum height so the back content is visible
-    const inner = card.querySelector('.job-card-inner');
-    if (card.classList.contains('flipped')) {
-      card.style.minHeight = '140px';
-    } else {
-      card.style.minHeight = '';
-    }
-  }
-}
-
-function cardDragStart(event, id) {
-  dragId = id;
-  event.dataTransfer.effectAllowed = 'move';
-  event.dataTransfer.setData('text/plain', id);
-  setTimeout(() => document.getElementById(`card-${id}`)?.classList.add('dragging'), 0);
-}
-
-function cardDragEnd() {
-  const card = document.getElementById(`card-${dragId}`);
-  if (card) {
-    card.classList.remove('dragging');
-    card.classList.remove('flipped');
-  }
-  clearDragState();
-}
-
-function kanbanDragOver(event, status) {
-  event.preventDefault();
-  if (dragOverCol === status) return;
-  clearDragState();
-  dragOverCol = status;
-  document.querySelector(`.kanban-col[data-col="${status}"]`)?.classList.add('drag-over');
-  document.getElementById(`di-${status.replace(/ /g, '-')}`)?.classList.add('visible');
-}
-
-function kanbanDragLeave(event) {
-  if (event.currentTarget.contains(event.relatedTarget)) return;
-  event.currentTarget.classList.remove('drag-over');
-  const status = event.currentTarget.dataset.col;
-  document.getElementById(`di-${status.replace(/ /g, '-')}`)?.classList.remove('visible');
-  if (dragOverCol === status) dragOverCol = null;
-}
-
-function kanbanDrop(event, newStatus) {
-  event.preventDefault();
-  const id  = event.dataTransfer.getData('text/plain') || dragId;
-  const job = jobs.find(j => j.id === id);
-  if (job && job.status !== newStatus) {
-    job.status = newStatus;
-    persist();
-    render();
-  }
-  clearDragState();
-  dragId = null;
-}
-
-function clearDragState() {
-  document.querySelectorAll('.kanban-col.drag-over').forEach(c => c.classList.remove('drag-over'));
-  document.querySelectorAll('.drop-indicator.visible').forEach(i => i.classList.remove('visible'));
-  dragOverCol = null;
-}
-
-function switchTab(tab) {
-  const tabs = ['kanban', 'table', 'stats', 'goals', 'timeline', 'templates'];
-  document.querySelectorAll('.tab').forEach((btn, i) => btn.classList.toggle('active', tabs[i] === tab));
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.getElementById(`view-${tab}`).classList.add('active');
-  const showFilter = tab === 'kanban' || tab === 'table';
-  document.getElementById('searchBar').classList.toggle('visible', showFilter);
-  document.getElementById('filterBar').classList.toggle('visible', showFilter);
-  if (!showFilter) document.getElementById('filterBar').classList.remove('expanded');
-  if (tab === 'timeline') renderTimeline();
-  if (tab === 'goals')    renderGoals();
-  if (tab === 'kanban') startParticles(); else stopParticles();
-}
-
-const MODAL_TABS = ['details', 'contacts', 'cover', 'emails', 'resume', 'qa', 'notes', 'activity'];
-
-const MODAL_TAB_RENDERERS = {
-  qa:       renderQAList,
-  emails:   renderEmailList,
-  activity: renderActivityLog,
-  contacts: renderContactsList,
-};
-
-function switchModalTab(tab) {
-  MODAL_TABS.forEach(t => {
-    document.getElementById(`mtab-${t}`).classList.toggle('active', t === tab);
-    document.getElementById(`mpanel-${t}`).classList.toggle('active', t === tab);
-  });
-  MODAL_TAB_RENDERERS[tab]?.();
-}
-
-let currentResume    = null;
-let currentCoverFile = null;
-
-function handleCoverDrop(event) {
-  event.preventDefault();
-  document.getElementById('coverDrop').classList.remove('dragover');
-  const file = event.dataTransfer.files[0];
-  if (file) loadCoverFile(file);
-}
-
-
-
-
-
-function handleResumeDrop(event) {
-  event.preventDefault();
-  document.getElementById('resumeDrop').classList.remove('dragover');
-  const file = event.dataTransfer.files[0];
-  if (file) loadResumeFile(file);
-}
-
-function loadFile(file, onLoaded) {
-  if (file.size > 5 * 1024 * 1024) { alert('File too large — max 5 MB.'); return; }
-  const reader = new FileReader();
-  reader.onload = e => onLoaded({ name: file.name, size: file.size, type: file.type, data: e.target.result });
-  reader.readAsDataURL(file);
-}
-
-function loadCoverFile(file)  { loadFile(file, f => { currentCoverFile = f; renderCoverFilePreview(); }); }
-function loadResumeFile(file) { loadFile(file, f => { currentResume    = f; renderResumePreview();    }); }
-
-function renderFilePreview(file, dropId, previewId, emoji, downloadLabel, clearFn, downloadFn) {
-  const drop    = document.getElementById(dropId);
-  const preview = document.getElementById(previewId);
-  if (!drop || !preview) return;
-  if (file) {
-    drop.style.display = 'none';
-    preview.innerHTML  = `
-      <div class="resume-file">
-        <span style="font-size:22px;flex-shrink:0">${emoji}</span>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)">${file.name}</div>
-          <div style="font-size:10px;color:var(--text3);font-weight:600">${Math.round(file.size / 1024)} KB</div>
-        </div>
-        <button onclick="${clearFn}()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px">×</button>
-      </div>
-      <button onclick="${downloadFn}()" style="margin-top:10px;width:100%;padding:8px;background:none;border:0.5px solid var(--border2);border-radius:12px;font-family:var(--fn);font-size:12px;font-weight:700;color:var(--text2);cursor:pointer">${downloadLabel}</button>
-    `;
-  } else {
-    drop.style.display = 'block';
-    preview.innerHTML  = '';
-  }
-}
-
-function renderResumePreview()    { renderFilePreview(currentResume,    'resumeDrop', 'resumePreview',      '📄', 'Download resume',       'clearResume',    'downloadResume');    }
-function renderCoverFilePreview() { renderFilePreview(currentCoverFile, 'coverDrop',  'coverFilePreview',   '📝', 'Download cover letter', 'clearCoverFile', 'downloadCoverFile'); }
-
-function clearResume()    { currentResume    = null; renderResumePreview();    }
-function clearCoverFile() { currentCoverFile = null; renderCoverFilePreview(); }
-
-function downloadFile(file) { const a = document.createElement('a'); a.href = file.data; a.download = file.name; a.click(); }
-function downloadResume()    { downloadFile(currentResume);    }
-function downloadCoverFile() { downloadFile(currentCoverFile); }
-
-let currentQA = [];
-
-function escHtml(str) {
-  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function renderQAList() {
-  document.getElementById('qaList').innerHTML = currentQA.map((item, i) => `
-    <div class="qa-item">
-      <button class="qa-remove" onclick="removeQA(${i})">×</button>
-      <input value="${escHtml(item.q)}" placeholder="Question (e.g. Why do you want to work here?)" oninput="currentQA[${i}].q=this.value">
-      <textarea placeholder="Your answer..." oninput="currentQA[${i}].a=this.value">${escHtml(item.a)}</textarea>
-    </div>
-  `).join('');
-}
-
-function addQA()      { currentQA.push({ q: '', a: '' }); renderQAList(); }
-function removeQA(i)  { currentQA.splice(i, 1);            renderQAList(); }
-
-let currentContacts = [];
-
-function renderContactsList() {
-  const list = document.getElementById('contactsList');
-  if (!list) return;
-
-  if (!currentContacts.length) {
-    list.innerHTML = `<div class="empty-state">No contacts yet — add the recruiter or hiring manager you've been speaking with.</div>`;
-    return;
-  }
-
-  list.innerHTML = currentContacts.map((c, i) => `
-    <div class="contact-card">
-      <button class="contact-remove" onclick="removeContact(${i})">×</button>
-      <div class="contact-grid">
-        <div class="contact-field">
-          <label>Name</label>
-          <input value="${escHtml(c.name)}" placeholder="e.g. Sarah Chen" oninput="currentContacts[${i}].name=this.value">
-        </div>
-        <div class="contact-field">
-          <label>Title / Role</label>
-          <input value="${escHtml(c.title)}" placeholder="e.g. Recruiter" oninput="currentContacts[${i}].title=this.value">
-        </div>
-        <div class="contact-field">
-          <label>Email</label>
-          <input type="email" value="${escHtml(c.email)}" placeholder="sarah@company.com" oninput="currentContacts[${i}].email=this.value">
-        </div>
-        <div class="contact-field">
-          <label>Phone</label>
-          <input type="tel" value="${escHtml(c.phone)}" placeholder="+1 555 000 0000" oninput="currentContacts[${i}].phone=this.value">
-        </div>
-        <div class="contact-field full">
-          <label>LinkedIn</label>
-          <input value="${escHtml(c.linkedin)}" placeholder="https://linkedin.com/in/..." oninput="currentContacts[${i}].linkedin=this.value">
-        </div>
-        <div class="contact-field full">
-          <label>Notes</label>
-          <input value="${escHtml(c.notes)}" placeholder="e.g. Very responsive, mentioned team is growing fast" oninput="currentContacts[${i}].notes=this.value">
-        </div>
-      </div>
-      ${c.email || c.linkedin ? `<div style="display:flex;gap:12px;margin-top:10px;padding-top:8px;border-top:0.5px solid var(--border)">
-        ${c.email    ? `<a href="mailto:${escHtml(c.email)}"   class="contact-link">✉️ Email</a>`   : ''}
-        ${c.linkedin ? `<a href="${escHtml(c.linkedin)}" target="_blank" class="contact-link">🔗 LinkedIn</a>` : ''}
-      </div>` : ''}
-    </div>
-  `).join('');
-}
-
-function addContact() {
-  currentContacts.push({ name: '', title: '', email: '', phone: '', linkedin: '', notes: '' });
-  renderContactsList();
-}
-
-function removeContact(i) {
-  currentContacts.splice(i, 1);
-  renderContactsList();
-}
-
-let currentEmails = [];
-
-function renderEmailList() {
-  const list = document.getElementById('emailList');
-  if (!list) return;
-
-  if (!currentEmails.length) {
-    list.innerHTML = `<div class="empty-state">No emails yet — pick a template above to get started.</div>`;
-    return;
-  }
-
-  list.innerHTML = currentEmails.map((email, i) => `
-    <div class="qa-item" style="margin-bottom:12px">
-      <button class="qa-remove" onclick="removeEmail(${i})">×</button>
-      <div style="font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">${escHtml(email.templateName)}</div>
-      <input value="${escHtml(email.subject)}" placeholder="Subject line..." oninput="currentEmails[${i}].subject=this.value" style="width:100%;margin-bottom:7px;font-size:12px">
-      <textarea placeholder="Email body..." oninput="currentEmails[${i}].body=this.value" style="width:100%;min-height:120px;font-size:12px;font-weight:400;line-height:1.5;margin-bottom:0">${escHtml(email.body)}</textarea>
-    </div>
-  `).join('');
-}
-
-function removeEmail(i) { currentEmails.splice(i, 1); renderEmailList(); }
-
-function activityEntryHtml(entry, isLast) {
-  const icons = {
-    status:        { emoji: '🔄', color: STATUS_CFG[entry.to]?.color || '#94A3B8' },
-    resume:        { emoji: '📄', color: '#34D399' },
-    interviewDate: { emoji: '📅', color: '#A78BFA' },
-    applyBy:       { emoji: '⏰', color: '#38BDF8' },
-    hearBackBy:    { emoji: '⏰', color: '#38BDF8' },
-  };
-  const cfg = icons[entry.type] || { emoji: '•', color: '#94A3B8' };
-
-  let label = '';
-  if (entry.type === 'status')        label = `Status changed from <strong>${entry.from}</strong> to <strong>${entry.to}</strong>`;
-  if (entry.type === 'resume')        label = `Resume attached — ${entry.detail}`;
-  if (entry.type === 'interviewDate') label = `Interview date set to ${formatDate(entry.detail)}`;
-  if (entry.type === 'applyBy')       label = `Apply by deadline set to ${formatDate(entry.detail)}`;
-  if (entry.type === 'hearBackBy')    label = `Hear back by deadline set to ${formatDate(entry.detail)}`;
-
-  return `
-    <div class="feed-item" style="cursor:default">
-      <div class="feed-dot-wrap">
-        <div class="feed-dot" style="background:${cfg.color}"></div>
-        ${!isLast ? '<div class="feed-line"></div>' : ''}
-      </div>
-      <div class="feed-content">
-        <div class="feed-title" style="font-size:12px">${label}</div>
-      </div>
-      <div class="feed-date">${formatDate(entry.date)}</div>
-    </div>
-  `;
-}
-
-function renderActivityLog() {
-  const list = document.getElementById('activityList');
-  if (!list) return;
-
-  const job = editId ? jobs.find(j => j.id === editId) : null;
-  const entries = [...(job?.activity || [])].reverse();
-
-  if (!entries.length) {
-    list.innerHTML = `<div class="feed-empty">Nothing logged yet — activity will appear here as you update this application.</div>`;
-    return;
-  }
-
-  list.innerHTML = '<div class="feed-list">' +
-    entries.map((e, i) => activityEntryHtml(e, i === entries.length - 1)).join('') +
-    '</div>';
-}
-
-function openEmailPicker() {
-  const list = document.getElementById('templatePickerList');
-  if (!templates.length) {
-    list.innerHTML = `<div class="empty-state">No templates yet — create some in the Templates tab first.</div>`;
-  } else {
-    list.innerHTML = templates.map(t => `
-      <div class="template-picker-item" onclick="applyTemplateToEmail('${t.id}')">
-        <div class="template-picker-item-name">${t.name}</div>
-        <div class="template-picker-item-preview">${t.body.replace(/\n/g, ' ')}</div>
-      </div>
-    `).join('');
-  }
-  document.getElementById('templatePickerBackdrop').classList.add('open');
-}
-
-function fillTemplate(str) {
-  const company = document.getElementById('f-company').value.trim() || '{{company}}';
-  const role    = document.getElementById('f-role').value.trim()    || '{{role}}';
-  const name    = userName || '{{your_name}}';
-  return str
-    .replace(/\{\{company\}\}/g, company)
-    .replace(/\{\{role\}\}/g,    role)
-    .replace(/\{\{your_name\}\}/g, name);
-}
-
-function applyTemplateToCover(id) {
-  const tpl = templates.find(t => t.id === id);
-  if (!tpl) return;
-  document.getElementById('f-cover').value = fillTemplate(tpl.body);
-  closeTemplatePicker();
-  switchModalTab('cover');
-}
-
-function applyTemplateToEmail(id) {
-  const tpl = templates.find(t => t.id === id);
-  if (!tpl) return;
-  currentEmails.push({
-    templateName: tpl.name,
-    subject:      fillTemplate(tpl.subject || ''),
-    body:         fillTemplate(tpl.body    || ''),
-  });
-  closeTemplatePicker();
-  switchModalTab('emails');
-  renderEmailList();
-}
-
-const TEXT_FIELDS = ['company', 'role', 'location', 'salary', 'link', 'cover', 'notes'];
-// Date fields have hyphenated IDs but camelCase job keys — mapped explicitly
-const DATE_FIELDS = { 'interview-date': 'interviewDate', 'apply-by': 'applyBy', 'hear-back-by': 'hearBackBy' };
-
-function resetModalPanels() {
-  renderResumePreview();
-  renderCoverFilePreview();
-  renderContactsList();
-  renderQAList();
-  renderEmailList();
-  renderActivityLog();
-  switchModalTab('details');
-  document.getElementById('modalOverlay').classList.add('open');
-}
-
-function setEditButtonsVisible(visible) {
-  const display = visible ? 'block' : 'none';
-  ['btnDelete', 'btnDuplicate', 'btnExportPDF', 'btnPrepMode'].forEach(id => {
-    document.getElementById(id).style.display = display;
-  });
-}
-
-function openAdd() {
-  editId           = null;
-  currentResume    = null;
-  currentCoverFile = null;
-  currentQA        = [];
-  currentEmails    = [];
-  currentContacts  = [];
-
-  document.getElementById('modalTitle').textContent = 'New application ✨';
-  setEditButtonsVisible(false);
-  TEXT_FIELDS.forEach(f => document.getElementById(`f-${f}`).value = '');
-  Object.keys(DATE_FIELDS).forEach(id => { document.getElementById(`f-${id}`).value = ''; });
-  document.getElementById('f-worktype').value = 'Remote';
-  document.getElementById('f-status').value   = 'Applied';
-  document.getElementById('f-date').value     = new Date().toISOString().slice(0, 10);
-  populateIndustrySelect('');
-  resetModalPanels();
-}
-
-function openEdit(id) {
-  const job = jobs.find(j => j.id === id);
-  editId           = id;
-  currentResume    = job.resume     ? { ...job.resume }    : null;
-  currentCoverFile = job.coverFile  ? { ...job.coverFile } : null;
-  currentQA        = JSON.parse(JSON.stringify(job.qa       || []));
-  currentEmails    = JSON.parse(JSON.stringify(job.emails   || []));
-  currentContacts  = JSON.parse(JSON.stringify(job.contacts || []));
-
-  document.getElementById('modalTitle').textContent = 'Edit application';
-  setEditButtonsVisible(true);
-  TEXT_FIELDS.forEach(f => document.getElementById(`f-${f}`).value = job[f] || '');
-  Object.entries(DATE_FIELDS).forEach(([id, key]) => {
-    document.getElementById(`f-${id}`).value = job[key] || '';
-  });
-  document.getElementById('f-worktype').value = job.worktype || 'Remote';
-  document.getElementById('f-status').value   = job.status   || 'Applied';
-  populateIndustrySelect(job.industry || '');
-  resetModalPanels();
-}
-
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-}
-
-function saveJob() {
-  const val = id => document.getElementById(id).value;
-  const prevJob = editId ? jobs.find(j => j.id === editId) : null;
-
-  const job = {
-    id:            editId || uid(),
-    company:       val('f-company').trim(),
-    role:          val('f-role').trim(),
-    location:      val('f-location').trim(),
-    worktype:      val('f-worktype'),
-    industry:      val('f-industry') === '__custom__' ? '' : (val('f-industry') || ''),
-    status:        val('f-status'),
-    salary:        val('f-salary').trim(),
-    date:          val('f-date'),
-    interviewDate: val('f-interview-date') || '',
-    applyBy:       val('f-apply-by')       || '',
-    hearBackBy:    val('f-hear-back-by')   || '',
-    link:          val('f-link').trim(),
-    cover:         val('f-cover').trim(),
-    notes:         val('f-notes').trim(),
-    resume:        currentResume,
-    coverFile:     currentCoverFile,
-    qa:            currentQA.filter(q => q.q || q.a),
-    emails:        currentEmails,
-    contacts:      currentContacts.filter(c => c.name),
-    activity:      prevJob?.activity ? [...prevJob.activity] : [],
-  };
-
-  if (!job.company) { alert('Please enter a company name.'); return; }
-
-  const today = new Date().toISOString().slice(0, 10);
-  const movedToInterviewing = prevJob && prevJob.status !== 'Interviewing' && job.status === 'Interviewing';
-
-  if (prevJob && prevJob.status !== job.status) {
-    job.activity.push({ date: today, type: 'status', from: prevJob.status, to: job.status });
-  }
-  if (prevJob && !prevJob.resume && job.resume) {
-    job.activity.push({ date: today, type: 'resume', detail: job.resume.name });
-  }
-  if (prevJob && prevJob.interviewDate !== job.interviewDate && job.interviewDate) {
-    job.activity.push({ date: today, type: 'interviewDate', detail: job.interviewDate });
-  }
-  if (prevJob && prevJob.applyBy !== job.applyBy && job.applyBy) {
-    job.activity.push({ date: today, type: 'applyBy', detail: job.applyBy });
-  }
-  if (prevJob && prevJob.hearBackBy !== job.hearBackBy && job.hearBackBy) {
-    job.activity.push({ date: today, type: 'hearBackBy', detail: job.hearBackBy });
-  }
-
-  const isNew = !editId;
-  if (editId) {
-    const idx = jobs.findIndex(j => j.id === editId);
-    jobs[idx] = job;
-  } else {
-    jobs.unshift(job);
-  }
-
-  persist();
-  render();
-  closeModal();
-
-  if (isNew && job.status === 'Applied') {
-    setTimeout(() => launchConfetti(document.getElementById('btnSave')), 80);
-  }
-
-  if (movedToInterviewing) {
-    setTimeout(showPrepToast, 300);
-  }
-}
-
-function deleteJob() {
-  jobs = jobs.filter(j => j.id !== editId);
-  persist();
-  render();
-  closeModal();
-}
-
-let timelineView = 'feed';
-let calYear  = new Date().getFullYear();
-let calMonth = new Date().getMonth();
-let openCalDay = null;
-
-function switchTimelineView(view) {
-  timelineView = view;
-  document.getElementById('tl-feed-btn').classList.toggle('active', view === 'feed');
-  document.getElementById('tl-cal-btn').classList.toggle('active',  view === 'cal');
-  document.getElementById('tl-feed').style.display = view === 'feed' ? 'block' : 'none';
-  document.getElementById('tl-cal').style.display  = view === 'cal'  ? 'block' : 'none';
-  renderTimeline();
-}
-
-function allEvents() {
-  const events = [];
-  for (const job of jobs) {
-    if (job.date) {
-      events.push({ date: job.date, type: 'applied', job });
-    }
-    if (job.interviewDate) {
-      events.push({ date: job.interviewDate, type: 'interview', job });
-    }
-    if (job.applyBy && !RESOLVED_STATUSES.includes(job.status)) {
-      events.push({ date: job.applyBy, type: 'applyBy', job });
-    }
-    if (job.hearBackBy && !RESOLVED_STATUSES.includes(job.status)) {
-      events.push({ date: job.hearBackBy, type: 'hearBackBy', job });
-    }
-    for (const entry of (job.activity || [])) {
-      events.push({ date: entry.date, type: 'status', from: entry.from, to: entry.to, job });
-    }
-  }
-  return events.sort((a, b) => b.date.localeCompare(a.date));
-}
-
-function eventLabel(ev) {
-  if (ev.type === 'applied')     return `Applied to ${ev.job.company}`;
-  if (ev.type === 'interview')   return `Interview at ${ev.job.company}`;
-  if (ev.type === 'status')      return `${ev.job.company} moved to ${ev.to}`;
-  if (ev.type === 'applyBy')     return `Apply by deadline — ${ev.job.company}`;
-  if (ev.type === 'hearBackBy')  return `Hear back from ${ev.job.company}`;
-  return '';
-}
-
-function eventColor(ev) {
-  if (ev.type === 'interview')  return '#34D399';
-  if (ev.type === 'applyBy' || ev.type === 'hearBackBy') {
-    const today = new Date().toISOString().slice(0, 10);
-    if (ev.date < today) return '#FB7185';
-    if (ev.date <= new Date(Date.now() + WARN_DAYS * 86400000).toISOString().slice(0, 10)) return '#FBBF24';
-    return '#38BDF8';
-  }
-  const status = ev.type === 'status' ? ev.to : ev.job.status;
-  return STATUS_CFG[status]?.color || '#94A3B8';
-}
-
-function renderTimeline() {
-  if (timelineView === 'feed') renderFeed();
-  else renderCal();
-}
-
-function renderFeed() {
-  const events = allEvents();
-  const el = document.getElementById('tl-feed');
-  if (!events.length) {
-    el.innerHTML = '<div class="feed-empty">No events yet — start adding applications!</div>';
-    return;
-  }
-
-  el.innerHTML = '<div class="feed-list">' + events.map((ev, i) => `
-    <div class="feed-item" onclick="openEdit('${ev.job.id}')">
-      <div class="feed-dot-wrap">
-        <div class="feed-dot" style="background:${eventColor(ev)}"></div>
-        ${i < events.length - 1 ? '<div class="feed-line"></div>' : ''}
-      </div>
-      <div class="feed-content">
-        <div class="feed-title">${eventLabel(ev)}</div>
-        <div class="feed-sub">${ev.job.role}${ev.job.location ? ' · ' + ev.job.location : ''}</div>
-      </div>
-      <div class="feed-date">${formatDate(ev.date)}</div>
-    </div>
-  `).join('') + '</div>';
-}
-
-function renderCal() {
-  const el = document.getElementById('tl-cal');
-  const events = allEvents();
-  const byDate = {};
-  for (const ev of events) {
-    (byDate[ev.date] = byDate[ev.date] || []).push(ev);
-  }
-
-  const today = new Date().toISOString().slice(0, 10);
-  const firstDay = new Date(calYear, calMonth, 1);
-  const lastDay  = new Date(calYear, calMonth + 1, 0);
-  const startDow = firstDay.getDay();
-  const monthName = firstDay.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-
-  const days = [];
-  for (let i = 0; i < startDow; i++) {
-    const d = new Date(calYear, calMonth, -startDow + i + 1);
-    days.push({ date: d.toISOString().slice(0, 10), other: true });
-  }
-  for (let d = 1; d <= lastDay.getDate(); d++) {
-    days.push({ date: new Date(calYear, calMonth, d).toISOString().slice(0, 10), other: false });
-  }
-  const remaining = 42 - days.length;
-  for (let d = 1; d <= remaining; d++) {
-    days.push({ date: new Date(calYear, calMonth + 1, d).toISOString().slice(0, 10), other: true });
-  }
-
-  const dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
-  el.innerHTML = `
-    <div class="cal-header">
-      <button class="cal-nav" onclick="calNav(-1)">‹</button>
-      <span class="cal-month-label">${monthName}</span>
-      <button class="cal-today-btn" onclick="calToday()">Today</button>
-      <button class="cal-nav" onclick="calNav(1)">›</button>
-    </div>
-    <div class="cal-grid">
-      ${dows.map(d => `<div class="cal-dow">${d}</div>`).join('')}
-      ${days.map(day => {
-        const evs = byDate[day.date] || [];
-        const isToday = day.date === today;
-        const isOpen  = openCalDay === day.date && evs.length;
-        return `
-          <div class="cal-day${day.other ? ' other-month' : ''}${isToday ? ' today' : ''}${evs.length ? ' has-events' : ''}"
-            onclick="${evs.length ? `toggleCalDay('${day.date}')` : ''}">
-            <div class="cal-day-num">${parseInt(day.date.slice(8))}</div>
-            ${evs.slice(0, 2).map(ev => `<div class="cal-chip" style="background:${eventColor(ev)}22;color:${eventColor(ev)}">${eventLabel(ev)}</div>`).join('')}
-            ${evs.length > 2 ? `<div style="font-size:9px;color:var(--text3);font-weight:700">+${evs.length - 2} more</div>` : ''}
-          </div>
-        `;
-      }).join('')}
-      ${openCalDay && byDate[openCalDay] ? `
-        <div class="cal-popover open">
-          <div class="cal-popover-title">${formatDate(openCalDay)}</div>
-          ${(byDate[openCalDay] || []).map(ev => `
-            <div class="cal-popover-item" onclick="openEdit('${ev.job.id}')">
-              <div class="feed-dot" style="background:${eventColor(ev)};flex-shrink:0"></div>
-              <span class="cal-popover-label">${eventLabel(ev)} — ${ev.job.role}</span>
-            </div>
-          `).join('')}
-        </div>
-      ` : ''}
-    </div>
-  `;
-}
-
-function toggleCalDay(date) {
-  openCalDay = openCalDay === date ? null : date;
-  renderCal();
-}
-
-function calNav(dir) {
-  calMonth += dir;
-  if (calMonth > 11) { calMonth = 0; calYear++; }
-  if (calMonth < 0)  { calMonth = 11; calYear--; }
-  openCalDay = null;
-  renderCal();
-}
-
-function calToday() {
-  const now = new Date();
-  calYear  = now.getFullYear();
-  calMonth = now.getMonth();
-  openCalDay = null;
-  renderCal();
-}
-
-load();
-
-// Wire up custom window controls (only available in Electron)
-if (window.windowControls) {
-  document.getElementById('winMinimize').addEventListener('click', () => window.windowControls.minimize())
-  document.getElementById('winMaximize').addEventListener('click', () => window.windowControls.maximize())
-  document.getElementById('winClose').addEventListener('click',    () => window.windowControls.close())
-
-  window.windowControls.onMaximized(isMax => {
-    const icon = document.querySelector('#winMaximize svg')
-    // switch icon between maximise (square) and restore (two overlapping squares)
-    icon.innerHTML = isMax
-      ? '<path d="M1 4h6v6H1zM4 1h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>'
-      : '<rect x="1" y="1" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>'
-  })
-} else {
-  // Running in browser — hide the controls gracefully
-  const ctrl = document.querySelector('.win-controls')
-  if (ctrl) ctrl.style.display = 'none'
-}
-</script>
+<script type="module" src="src/app.js"></script>
 </body>
 </html>
